@@ -3,13 +3,13 @@
 Work in progress! This repository should eventually contain:
 
 - [x] input parameters for running the model in DayCent (version ???, compiled from a zip archive dated 2012-06-13 and labeled `DailyDayCent_Linux_Source`). 
-- [] Run scripts (mix of shell and R).
-- [] Result-plotting scripts (mostly R).
-- [] Validation scripts (mostly R).
-- [] Archive of validation data (excluding unpublished values shared by others).
-- [] Archive of final model output.
-- [] Plotting code for final figures (in R).
-- [] Documentation of all of the above.
+- [ ] Run scripts (mix of shell and R).
+- [ ] Result-plotting scripts (mostly R).
+- [ ] Validation scripts (mostly R).
+- [ ] Archive of validation data (excluding unpublished values shared by others).
+- [ ] Archive of final model output.
+- [ ] Plotting code for final figures (in R).
+- [ ] Documentation of all of the above.
 
 ## The general scheme
 
