@@ -1,0 +1,30 @@
+Output (0/1)  file_name         description
+1             bio.out           # daily above and below ground live carbon
+1             soiln.out         # daily soil ammonium and nitrate by layer
+1             soiltavg.out      # daily average soil temperature by layer
+0             soiltmax.out      # daily maximum soil temperature by layer
+0             soiltmin.out      # daily minimum soil temperature by layer
+0             stemp_dx.out      # daily soil temperature every few cm (HUGE)!
+1             vswc.out          # daily volumetric soilwater content by layer
+1             watrbal.out       # daily water balance
+1             wfps.out          # daily water filled pore space by layer
+0             co2.out           # daily CO2 concentrations by layer
+1             wflux.out         # daily water flux through the bottom of soil layers
+1             mresp.out         # daily maintenance respiration
+0             year_summary.out  # yearly trace gas fluxes
+1             livec.out         # daily live carbon
+1             deadc.out         # daily dead carbon
+1             soilc.out         # daily soil carbon
+1             sysc.out          # daily system carbon
+0             tgmonth.out       # monthly trace gas fluxes
+0             dN2lyr.out        # daily denitrification N2 fluxes by layer
+0             dN2Olyr.out       # daily denitrification N2O fluxes by layer
+1             gresp.out         # daily growth respiration
+0             dels.out          # daily delta 13C/14C values
+1             dc_sip.csv        # daily evap, tran, resp, system C, and NPP
+1             harvest.csv       # state of the system at time of harvest
+0             cflows.out        # daily carbon flows due to decompostion
+0             year_cflows.out   # annual accumulators of decomp carbon flows
+1             daily.out         # daily ET, defac, soil temp, snow, and therm units
+1             nflux.out         # daily trace gases, nitrification, denitrification
+1             summary.out       # daily climate, trace gas, and CO resp
