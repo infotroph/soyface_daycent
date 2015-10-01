@@ -1,0 +1,43 @@
+0         / 1 = Use extra weather drivers (solrad, rhumid, windsp), 0 = don't use (for PET)
+1         / sublimscale
+0.18      / vegetation reflectivity (frac)
+0.20      / albedo (frac) hardwoods = 0.20 spruce = 0.10
+1.0       / fswcinit - initial swc, fraction of field capacity
+0.000008  / dmpflux - in h2oflux routine (0.000001 = original value)
+4         / hours_rain - duration of each rain event
+-1        / # of days between rainfall event and drainage of soil (-1=computed)
+1  0      / watertable[month] - 0 = no water table, 1 = water table
+2  0
+3  0
+4  0
+5  0
+6  0
+7  0
+8  0
+9  0
+10 0
+11 0
+12 0
+0.0       / hpotdeep - hydraulic water potential of deep storage layer (units?)
+0.0003    / ksatdeep - saturated hydraulic conductivity of deep storage layer (cm/sec)
+1  52     / cldcov[month] - cloud cover (%)
+2  48
+3  48
+4  45
+5  40
+6  36
+7  33
+8  33
+9  37
+10 47
+11 49
+12 53
+8 28     / min and max temperature for bottom soil layer (degrees C)
+0.00504  / damping factor for calculating soil temperature by layer
+90.0     / timlag, days from Jan 1 to coolest temp at bottom of soil (days)
+0.03     / min water/temperature limitation coefficient for nitrify
+0 0      / turn off respiration restraint on denit between these Julian dates
+0.8      / proportion of nitrified N that is lost as N2O (0.0-1.0)
+0.4      / maximum daily nitrification amount (gN/m^2)
+1        / snow effect on soil surface temp: 0 = not insulating, 1 = insulating
+0.8      / netm_to_no3 - fraction of new net mineralization that goes to NO3
