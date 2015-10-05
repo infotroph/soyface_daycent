@@ -1,0 +1,38 @@
+All columns labeled, leftmost 2 cols are time and dayofyr:
+	bio
+	cflows
+	daily
+	dc_sip.csv
+	deadc
+	dels (but in my test case it's empty after the headers)
+	gresp
+	harvest.csv
+	livec
+	mresp 
+	nflux
+	soilc
+	summary
+	sysc
+		
+All columns labeled, leftmost col is time but no dayofyr
+	tgmonth
+	year_cflows
+	year_summary
+		
+Has column labels for time, dayofyr, layers 0-9, then "etc..."
+	co2
+	dN2Olyr
+	dN2lyr
+	soiln (plus ammonia column btwn dayofyr and no3 lyr0)
+	wflux
+	
+No headers, format is time, dayofyr, <soil layers 1:13>
+	soiltavg
+	soiltmax
+	soiltmin
+	vswc
+	wfps
+		
+The weird ones:
+	stemp_dx: time, dayofyr, 63 unlabeled cols!
+	watrbal.out: all columns labeled, but extra row above header.
