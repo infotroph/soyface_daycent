@@ -2,10 +2,10 @@
 
 library(ggplot2)
 library(grid)
-source("~/R/ggplot-ticks/mirror.ticks.r")
-source("../tools/ggpng.r")
-source("../tools/ggthemes.r")
-theme_set(theme_delucia(16))
+library(DeLuciatoR) # See https://github.com/infotroph/DeLuciatoR
+library(devtools)
+source_url("https://raw.githubusercontent.com/infotroph/ggplot-ticks/master/mirror.ticks.r")
+theme_set(theme_ggEHD(16))
 
 # Probably only applies to spinup results:
 # Only plot output from this year or later.
@@ -29,12 +29,17 @@ if(times[2] - times[1] > 1){
 }
 
 lis = lis[lis$time >= plot_cutoff,]
-plotarg=function(arg){
+for(arg in argv[-1]){
 	map = call("aes", x=as.name("time"), y=as.name(arg))
+
 	plt = (ggplot(data=lis, mapping=eval(map))
 		+geom_line(aes(color=factor(run)))
 		+labs(color="Run"))
-	ggpng(plt, paste0(argv[1], "_", arg,".png"))
+	png_ggsized(
+		ggobj = mirror.ticks(plt),
+		filename=paste0(argv[1], "_", arg,".png"),
+		maxwidth=10.5,
+		maxheight=7,
+		units="in",
+		res=300)
 }
-
-lapply(argv[-1], plotarg)
