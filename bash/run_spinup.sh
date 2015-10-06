@@ -22,7 +22,7 @@ if [ -e "$runname".bin ]; then
 fi
 
 # Link in Daycent parameters
-# Beware: overwrites any existing versions of these files!
+# Beware: overwrites any existing .100 files in $dirname/!
 ln -sf ../common_100s/* .
 ln -sf ../differing_100s/spin_fix.100 fix.100
 ln -sf ../differing_100s/spin_soyface.100 soyface.100
