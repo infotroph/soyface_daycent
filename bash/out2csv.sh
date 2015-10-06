@@ -40,7 +40,6 @@ Options:
 	-h Show this help."
 
 
-
 ## 1. Process arguments:
 
 (( $# )) || { printf '%s\n' "$usage" && exit 1; }
@@ -58,7 +57,6 @@ while getopts "aoedh" OPT; do
 	esac
 done
 shift $(( $OPTIND - 1 ))
-
 
 runname=$1;
 prefix=$2
