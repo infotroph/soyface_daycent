@@ -58,4 +58,5 @@ echo "1 binmonthly.lis" > outfiles_tmp.txt
 rm outfiles_tmp.txt
 
 # OK, let's plot some diagnostics.
-Rscript ../R/plotlis.r "$dirname"_binmonthly.csv somtc som3c som2c.2. somte.1. somse.1. tminrl.1. cproda aglivc stdedc agcprd bgcjprd bgcmprd som2e.1.1. som2e.2.1. som3e.1. stream.2. stream.5. stream.6.
+lisvars=($(< outvars.txt))
+Rscript ../R/plotlis.r "$dirname"_binmonthly.csv ${lisvars[@]}

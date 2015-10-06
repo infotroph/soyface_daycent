@@ -19,7 +19,7 @@ if(!exists("argv")){
 	argv = commandArgs(trailingOnly = TRUE)
 }
 
-lis = read.csv(argv[1])
+lis = read.csv(argv[1], check.names=FALSE)
 
 # lis files from runs with output starting late in simulation
 # have one crufty row from start time; we don't need to see that.
