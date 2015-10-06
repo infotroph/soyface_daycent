@@ -16,7 +16,7 @@ weatherout='cushuf.wth' # Name must match weather file used in schedfile.
 if [ $2 ]; then 
 	dirname=$2
 else
-	dirname=runname
+	dirname=$runname
 fi
 
 mkdir -p $dirname
