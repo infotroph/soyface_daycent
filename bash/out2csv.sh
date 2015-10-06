@@ -123,7 +123,7 @@ spacetocomma='s/ +/,/g;'
 
 while read -a f; do # reading from input file
 	if ((${f[0]}!=1)); then continue; fi # skip files disabled in DayCent run
-	outfile="$prefix"_"${f[1]%%.*}".csv
+	outfile="$prefix${f[1]%%.*}".csv
 	if [ $error ] && [ -e "$outfile" ]; then
 		echo "Error: $outfile already exists!"
 		exit 1

@@ -47,7 +47,7 @@ time DailyDayCent -s ../schedules/spin.sch -n $runname 2>&1 | tee -a $runname.lo
 # N.B. Some .out files have weird headers--see notes/outfile-headers.txt.
 # We don't fix those here, we just turn them from invalid
 # space-delimited headers into invalid CSV headers.
-../bash/out2csv.sh -a -d $runname $dirname outfiles.in
+../bash/out2csv.sh -a -d $runname "$dirname"_ outfiles.in
 
 # Extract variables of interest from binary file.
 # The arguments are confusing:
@@ -58,7 +58,7 @@ DailyDayCent_list100 $runname $runname outvars.txt
 
 # Convert list100 output to CSV, with help from a fake outfiles.in.
 echo "1 $runname.lis" > "$runname"_outfiles_tmp.txt
-../bash/out2csv.sh -a -d $runname $dirname "$runname"_outfiles_tmp.txt
+../bash/out2csv.sh -a -d $runname "$dirname"_ "$runname"_outfiles_tmp.txt
 rm "$runname"_outfiles_tmp.txt
 
 # OK, let's plot some diagnostics.
