@@ -9,9 +9,6 @@
 # and plots diagnostics.
 
 runname=$1
-schedfile='../schedules/spin.sch'
-weatherin='../weather/cu.wth'
-weatherout='cushuf.wth' # Name must match weather file used in schedfile.
 
 if [ $2 ]; then
 	dirname=$2
@@ -40,10 +37,10 @@ ln -sf ../run_specific/spin_soils.in soils.in
 
 # Randomize order of years in weather file,
 # but keep days of each year together
-Rscript ../R/weather-shuffler.r $weatherin $weatherout
+Rscript ../R/weather-shuffler.r ../weather/cu.wth cushuf.wth
 
 # Run the model, report time spent, capture output to log.
-time DailyDayCent -s $schedfile -n $runname 2>&1 | tee -a $runname.log
+time DailyDayCent -s ../schedules/spin.sch -n $runname 2>&1 | tee -a $runname.log
 
 # Convert any daily output files to CSV, for easier analysis...
 # ...and ~50% smaller files!
