@@ -13,19 +13,19 @@ theme_set(theme_ggEHD(16))
 # adjust 'output starting year' in your schedule file!
 plot_cutoff = 1850
 
-# If argv exists already, we're being sourced from inside another script. 
+# If argv exists already, we're being sourced from inside another script.
 # If not, we're running standalone and taking arguments from the command line.
-if(!exists("argv")){ 
+if(!exists("argv")){
 	argv = commandArgs(trailingOnly = TRUE)
 }
 
 lis = read.csv(argv[1])
 
-# lis files from runs with output starting late in simulation 
+# lis files from runs with output starting late in simulation
 # have one crufty row from start time; we don't need to see that.
 times = sort(unique(lis$time))[1:2]
 if(times[2] - times[1] > 1){
-	lis = lis[lis$time > min(lis$time),] 
+	lis = lis[lis$time > min(lis$time),]
 }
 
 lis = lis[lis$time >= plot_cutoff,]
