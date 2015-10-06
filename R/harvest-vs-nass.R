@@ -3,15 +3,17 @@
 library(ggplot2)
 library(grid)
 library(gridExtra)
-source("~/R/ggplot-ticks/mirror.ticks.r")
-source("../tools/ggthemes.r")
+library(DeLuciatoR) # See https://github.com/infotroph/DeLuciatoR
+library(devtools)
+source_url("https://raw.githubusercontent.com/infotroph/ggplot-ticks/master/mirror.ticks.r")
+theme_set(theme_ggEHD(16))
 
 args = commandArgs(trailingOnly = TRUE)
 
-corntargets = read.csv("../sfsiteval/NASS-champcty-croprecords/cornyield-champcty.csv")
-soytargets = read.csv("../sfsiteval/NASS-champcty-croprecords/soyyield-champcty.csv")
+corntargets = read.csv("../validation_data/NASS/cornyield-champcty.csv")
+soytargets = read.csv("../validation_data/NASS//soyyield-champcty.csv")
 
-corntargets$gCm2 = 
+corntargets$gCm2 =
 	(corntargets$Value
 	* 25401.2 # grams in 56 lb
 	* 0.845 # 15.5% moisture
@@ -61,105 +63,100 @@ lm_eqn = function(mod){
 	as.character(as.expression(eq))
 }
 
-png(filename=paste(args[1], "_corn_vs_nass.png", sep=""),
-	width=10.5,
-	height=7,
-	units="in",
-	res=300)
 pltcorn = (ggplot(data=cornharv, aes(x=year))
 	+ geom_line(data=corntargets, aes(x=Year, y=gCm2, color="NASS"))
 	# + geom_point(data=corntargets, aes(x=Year, y=gCm2, color="NASS"))
 	+ geom_line(aes(y=cgrain, color="DayCENT"))
 	+ geom_point(aes(y=cgrain, color="DayCENT"))
-	+ ylab(expression(paste("Corn grain, g C ", m^-2)))
-	+ theme_delucia())
-plot(mirror.ticks(pltcorn))
-dev.off()
-
-png(filename=paste(args[1], "_cornshoot_vs_nass.png", sep=""),
-	width=10.5,
-	height=7,
+	+ ylab(expression(paste("Corn grain, g C ", m^-2))))
+png_ggsized(
+	ggobj = mirror.ticks(pltcorn),
+	filename=paste0(args[1], "_corn_vs_nass.png"),
+	maxwidth=10.5,
+	maxheight=7,
 	units="in",
 	res=300)
+
 pltcornshoot = (ggplot(data=cornharv, aes(x=year))
 	+ geom_line(data=corntargets, aes(x=Year, y=estshootC, color="NASS"))
 	# + geom_point(data=corntargets, aes(x=Year, y=estshootC, color="NASS"))
 	+ geom_line(aes(y=agcacc, color="DayCENT"))
 	+ geom_point(aes(y=agcacc, color="DayCENT"))
-	+ ylab(expression(paste("Corn shoot biomass, g C ", m^-2)))
-	+ theme_delucia())
-plot(mirror.ticks(pltcornshoot))
-dev.off()
-
-
-png(filename=paste(args[1], "_soy_vs_nass.png", sep=""),
-	width=10.5,
-	height=7,
+	+ ylab(expression(paste("Corn shoot biomass, g C ", m^-2))))
+png_ggsized(
+	ggobj = mirror.ticks(pltcornshoot),
+	filename=paste0(args[1], "_cornshoot_vs_nass.png"),
+	maxwidth=10.5,
+	maxheight=7,
 	units="in",
 	res=300)
+
 pltsoy = (ggplot(data=soyharv, aes(x=year))
 	+ geom_line(data=soytargets, aes(x=Year, y=gCm2, color="NASS"))
 	# + geom_point(data=soytargets, aes(x=Year, y=gCm2, color="NASS"))
 	+ geom_line(aes(y=cgrain, color="DayCENT"))
 	+ geom_point(aes(y=cgrain, color="DayCENT"))
-	+ ylab(expression(paste("Soy grain, g C ", m^-2)))
-	+ theme_delucia())
-plot(mirror.ticks(pltsoy))
-dev.off()
-
-cornlm = lm(cgrain ~ NASScgrain, cornharv)
-png(filename=paste(args[1], "_corn_vs_nass_lm.png", sep=""),
-	width=10.5,
-	height=7,
+	+ ylab(expression(paste("Soy grain, g C ", m^-2))))
+png_ggsized(
+	ggobj = mirror.ticks(pltsoy),
+	filename=paste0(args[1], "_soy_vs_nass.png"),
+	maxwidth=10.5,
+	maxheight=7,
 	units="in",
 	res=300)
+
+cornlm = lm(cgrain ~ NASScgrain, cornharv)
 pltcornlm = (ggplot(data=cornharv, aes(x=NASScgrain, y=cgrain))
 	+ geom_point()
 	+ geom_smooth(method="lm")
 	+ geom_abline(intercept=0, slope=1, lty="dashed")
 	+ xlab(expression(paste("NASS corn grain, g C ", m^-2)))
 	+ ylab(expression(paste("DayCENT corn grain, g C ", m^-2)))
-	+ geom_text(aes(x=150, y=400, label=lm_eqn(cornlm)), parse=TRUE) # adjust x,y as needed
-	+ theme_delucia())
-plot(mirror.ticks(pltcornlm))
-dev.off()
-
-cornshootlm = lm(agcacc ~ NASSagcacc, cornharv)
-png(filename=paste(args[1], "_cornshoot_vs_nass_lm.png", sep=""),
-	width=10.5,
-	height=7,
+	+ geom_text(aes(x=150, y=400, label=lm_eqn(cornlm)), parse=TRUE)) # adjust x,y as needed
+png_ggsized(
+	ggobj = mirror.ticks(pltcornlm),
+	filename=paste0(args[1], "_corn_vs_nass_lm.png"),
+	maxwidth=10.5,
+	maxheight=7,
 	units="in",
 	res=300)
+
+cornshootlm = lm(agcacc ~ NASSagcacc, cornharv)
 pltcornshootlm = (ggplot(data=cornharv, aes(x=NASSagcacc, y=agcacc))
 	+ geom_point()
 	+ geom_smooth(method="lm")
 	+ geom_abline(intercept=0, slope=1, lty="dashed")
 	+ xlab(expression(paste("NASS corn shoot biomass (est from grain), g C ", m^-2)))
 	+ ylab(expression(paste("DayCENT corn shoot biomass, g C ", m^-2)))
-	+ geom_text(aes(x=200, y=700, label=lm_eqn(cornshootlm)), parse=TRUE) # adjust x,y as needed
-	+ theme_delucia())
-plot(mirror.ticks(pltcornshootlm))
-dev.off()
-
-soylm = lm(cgrain ~ NASScgrain, soyharv)
-png(filename=paste(args[1], "_soy_vs_nass_lm.png", sep=""), 
-	width=10.5,
-	height=7,
+	+ geom_text(aes(x=200, y=700, label=lm_eqn(cornshootlm)), parse=TRUE)) # adjust x,y as needed
+png_ggsized(
+	ggobj = mirror.ticks(pltcornshootlm),
+	filename=paste0(args[1], "_cornshoot_vs_nass_lm.png"),
+	maxwidth=10.5,
+	maxheight=7,
 	units="in",
 	res=300)
+
+soylm = lm(cgrain ~ NASScgrain, soyharv)
 pltsoylm = (ggplot(data=soyharv, aes(x=NASScgrain, y=cgrain))
 	+ geom_point()
 	+ geom_smooth(method="lm")
 	+ geom_abline(intercept=0, slope=1, lty="dashed")
 	+ xlab(expression(paste("NASS soy grain, g C ", m^-2)))
 	+ ylab(expression(paste("DayCENT soy grain, g C ", m^-2)))
-	+ geom_text(aes(x=80, y=250, label=lm_eqn(soylm)), parse=TRUE) # adjust x,y as needed
-	+ theme_delucia())
-plot(mirror.ticks(pltsoylm))
-dev.off()
+	+ geom_text(aes(x=80, y=250, label=lm_eqn(soylm)), parse=TRUE)) # adjust x,y as needed
+png_ggsized(
+	ggobj = mirror.ticks(pltsoylm),
+	filename=paste0(args[1], "_soy_vs_nass_lm.png"),
+	maxwidth=10.5,
+	maxheight=7,
+	units="in",
+	res=300)
 
-theme_set(theme_delucia(8))
-png(filename=paste(args[1], "_grainvsnass.png", sep=""), 
+theme_set(theme_ggEHD(8))
+# Can't use png_ggsized here: It expects a ggplot or gtable object,
+# grid.arrange produces a grid object.
+png(filename=paste(args[1], "_grainvsnass.png", sep=""),
 	width=13,
 	height=13,
 	units="in",
@@ -168,7 +165,7 @@ grid.arrange(
 	mirror.ticks(pltcorn
 		+scale_color_grey()
 		+theme(
-			legend.title=element_blank(), 
+			legend.title=element_blank(),
 			legend.position=c(0.3,0.8))),
 	mirror.ticks(pltcornlm+scale_color_grey()),
 	mirror.ticks(pltsoy+scale_color_grey()+theme(legend.position="none")),

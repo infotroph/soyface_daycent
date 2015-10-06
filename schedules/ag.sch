@@ -2,7 +2,7 @@
 # the binary file from sfspinup.sch.
 1868          Starting year
 2000          Last year
-soyface_corn.100   Site file name
+soyface.100   Site file name
 0             Labeling type
 -1            Labeling year
 -1.00         Microcosm
