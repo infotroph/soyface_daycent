@@ -74,8 +74,8 @@ tail -n+2 "$runname".lis | sed -E \
 rm "$runname".lis
 
 # Convert any daily output files to CSV as well.
-# N.B. Some .out files have weird headers--see notes/outfile-headers.txt
-# for details. We don't fix those here, we just turn them from invalid
+# N.B. Some .out files have weird headers--see notes/outfile-headers.txt.
+# We don't fix those here, we just turn them from invalid
 # space-delimited headers into invalid CSV headers.
 ../bash/out2csv.sh -a -d $runname $dirname outfiles.in
 
