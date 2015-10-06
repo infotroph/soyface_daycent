@@ -49,17 +49,17 @@ time DailyDayCent -s ../schedules/spin.sch -n $runname 2>&1 | tee -a $runname.lo
 # space-delimited headers into invalid CSV headers.
 ../bash/out2csv.sh -a -d $runname "$dirname"_ outfiles.in
 
-# Extract variables of interest from binary file.
+# Extract variables of interest from monthly binary file.
 # The arguments are confusing:
 # 	First: input.bin, specified WITHOUT the .bin,
 #	Second: output.lis, specified WITHOUT the .lis,
 # 	Third: vars_to_extract.txt, specified INCLUDING the .txt
-DailyDayCent_list100 $runname $runname outvars.txt
+DailyDayCent_list100 $runname "binmonthly" outvars.txt
 
 # Convert list100 output to CSV, with help from a fake outfiles.in.
-echo "1 $runname.lis" > "$runname"_outfiles_tmp.txt
-../bash/out2csv.sh -a -d $runname "$dirname"_ "$runname"_outfiles_tmp.txt
-rm "$runname"_outfiles_tmp.txt
+echo "1 binmonthly.lis" > outfiles_tmp.txt
+../bash/out2csv.sh -a -d $runname "$dirname"_ outfiles_tmp.txt
+rm outfiles_tmp.txt
 
 # OK, let's plot some diagnostics.
-Rscript ../R/plotlis.r "$dirname".csv somtc som3c som2c.2. somte.1. somse.1. tminrl.1. cproda aglivc stdedc agcprd bgcjprd bgcmprd som2e.1.1. som2e.2.1. som3e.1. stream.2. stream.5. stream.6.
+Rscript ../R/plotlis.r "$dirname"_binmonthly.csv somtc som3c som2c.2. somte.1. somse.1. tminrl.1. cproda aglivc stdedc agcprd bgcjprd bgcmprd som2e.1.1. som2e.2.1. som3e.1. stream.2. stream.5. stream.6.
