@@ -8,7 +8,7 @@ help="
       Convert Daycent output files from space-delimited ASCII to CSV.
 
 $usage
-	
+
 Required arguments:
  	runname: String to be added to a \"run\" column at the beginning of each
  		line of the output csv.
@@ -16,12 +16,12 @@ Required arguments:
 	prefix: String to be added to the beginning of each CSV's filename.
 
 	outfiles.in: A list of files to convert, in the same format as DayCent's
-		\"outfiles.in\". 
+		\"outfiles.in\".
 
 	N.B. You probably only want to run this script from a directory that
 		contains input and output files from exactly one Daycent run, feeding
-		it the same runname you used in the run script and the same 
-		outfiles.in you had DayCent use for the run you're converting. Any 
+		it the same runname you used in the run script and the same
+		outfiles.in you had DayCent use for the run you're converting. Any
 		other arrangement will likely produce... surprises.
 
 Options:
@@ -30,14 +30,14 @@ Options:
 
 	-a	Append. Skips header line, then adds the rest of <file>.out to the end
 		of an existing <file>.csv. Overrides -o if both are present.
-	
+
 	-e	Error. Exit with an error if file already exists. This is the default
 		behavior, and it overrides -a and -o if both are present.
 	-o	Overwrite. Replace existing <file>.csv with contents of <file>.out.
 
 	-d Delete original files after converting. Default is to not delete.
 
-	-h Show this help."	
+	-h Show this help."
 
 
 
@@ -46,17 +46,17 @@ Options:
 (( $# )) || { printf '%s\n' "$usage" && exit 1; }
 
 while getopts "aoedh" OPT; do
-	case $OPT in 
+	case $OPT in
 		e) error=true;;
 		a) append=true;;
 		o) overwrite=true;;
 		d) postdelete=true;;
-		h) printf '%s\n' "$help" 
+		h) printf '%s\n' "$help"
 			exit 0;;
 		*) echo "$usage"
 			exit 1;;
 	esac
-done 
+done
 shift $(( $OPTIND - 1 ))
 
 
@@ -64,12 +64,12 @@ runname=$1;
 prefix=$2
 infile=$3
 
-if [ $error ]; then 
-	unset append 
+if [ $error ]; then
+	unset append
 	unset overwrite
 fi
 
-if [ $append ]; then 
+if [ $append ]; then
 	unset overwrite
 fi
 
@@ -104,12 +104,12 @@ addrunhead='/^ *[a-zA-Z]/ s/^ */run,/;'
 # each non-header (or at least "begins with a non-letter") line.
 addrunname='/^ *[a-zA-Z]/! s/^ */'"$runname"',/;'
 
-# Wrap double quotes around fields with pre-existing commas, 
-# so they aren't treated as field separators 
+# Wrap double quotes around fields with pre-existing commas,
+# so they aren't treated as field separators
 # when reading the CSV later.
 protectcomma='s/([^ ]+,[^ ]+)/"\1"/g;'
 
-# Remove trailing whitespace or commas, 
+# Remove trailing whitespace or commas,
 # to prevent empty CSV columns.
 killtrailing='s/[ ,]+$//;'
 
