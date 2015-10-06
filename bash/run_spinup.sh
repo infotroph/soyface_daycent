@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run spinup stage of SoyFACE climate change simulations.
-# Usage example: $(./run_spinup.sh spin_test spin)
+# Usage example: $(./bash/run_spinup.sh spin_test spin)
 # This sets the output to land in a directory named "spin",
 # creates it if it doesn't exist,
 # link in all required parameter files,
