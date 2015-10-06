@@ -49,7 +49,7 @@ while getopts "aoedh" OPT; do
 	case $OPT in 
 		e) error=true;;
 		a) append=true;;
-		o) truncate=true;;
+		o) overwrite=true;;
 		d) postdelete=true;;
 		h) printf '%s\n' "$help" 
 			exit 0;;
@@ -66,14 +66,14 @@ infile=$3
 
 if [ $error ]; then 
 	unset append 
-	unset truncate
+	unset overwrite
 fi
 
 if [ $append ]; then 
-	unset truncate
+	unset overwrite
 fi
 
-if [ ! $append ] && [ ! $truncate ]; then
+if [ ! $append ] && [ ! $overwrite ]; then
 	error=true
 fi
 
@@ -132,8 +132,8 @@ while read -a f; do # reading from input file
 	else
 		echo "converting ${f[1]}"
 	fi
-	if [ $truncate ] && [ -e "$outfile" ]; then 
-		> "$outfile"
+	if [ $overwrite ] && [ -e "$outfile" ]; then
+		> "$outfile" # truncates existing file to length zero.
 	fi
 	if [ $append ] && [ -e "$outfile" ]; then
 		headerop='1,2 {'"$killwbalhead $killhead"'}'
