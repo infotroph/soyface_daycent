@@ -2,7 +2,7 @@
 
 Work in progress! This repository should eventually contain:
 
-- [x] input parameters for running the model in DayCent (version ???, compiled from a zip archive dated 2012-06-13 and labeled `DailyDayCent_Linux_Source`). 
+- [x] input parameters for running the model in DayCent (version ???, compiled from a zip archive dated 2012-06-13 and labeled `DailyDayCent_Linux_Source`).
 - [ ] Run scripts (mix of shell and R).
 - [ ] Result-plotting scripts (mostly R).
 - [ ] Validation scripts (mostly R).
@@ -13,7 +13,7 @@ Work in progress! This repository should eventually contain:
 
 ## The general scheme
 
-This simulation consists of a set of three linked models, each initialized with the output from the previous model: 
+This simulation consists of a set of three linked models, each initialized with the output from the previous model:
 
 1. A spinup run to bring all C pools to equilibrium by simulating ~4000 years of untilled tallgrass prairie with periodic grazing and burning.
 2. A historical agriculture scenario from 1867 to 2000, with mixed cropping and pasture early in the late 19th and early 20th century evolving into pure maize-soybean rotation by 1950. The simulation uses actual observed weather, and cultivar yields and fertilization rates are taken from USDA NASS records for Champaign County.
