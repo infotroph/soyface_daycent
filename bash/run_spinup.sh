@@ -9,16 +9,13 @@
 # and plots diagnostics.
 
 runname=$1
-
 if [ $2 ]; then
 	dirname=$2
 else
 	dirname=$runname
 fi
-
 mkdir -p $dirname
 cd $dirname
-
 if [ -e "$runname".bin ]; then
 	echo 'Error: '"$runname"'.bin already exists!'
 	exit 1
@@ -27,7 +24,6 @@ fi
 # Link in Daycent parameters
 # Beware: overwrites any existing versions of these files!
 ln -sf ../common_100s/* .
-
 ln -sf ../differing_100s/spin_fix.100 fix.100
 ln -sf ../differing_100s/spin_soyface.100 soyface.100
 ln -sf ../differing_100s/spin_outfiles.in outfiles.in
