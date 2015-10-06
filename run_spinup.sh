@@ -45,6 +45,13 @@ Rscript ../R/weather-shuffler.r $weatherin $weatherout
 # Run the model, report time spent, capture output to log.
 time DailyDayCent -s $schedfile -n $runname 2>&1 | tee -a $runname.log
 
+# Convert any daily output files to CSV, for easier analysis...
+# ...and ~50% smaller files!
+# N.B. Some .out files have weird headers--see notes/outfile-headers.txt.
+# We don't fix those here, we just turn them from invalid
+# space-delimited headers into invalid CSV headers.
+../bash/out2csv.sh -a -d $runname $dirname outfiles.in
+
 # Extract variables of interest from binary file.
 # The arguments are confusing:
 # 	First: input.bin, specified WITHOUT the .bin,
@@ -57,13 +64,5 @@ echo "1 $runname.lis" > "$runname"_outfiles_tmp.txt
 ../bash/out2csv.sh -a -d $runname $dirname "$runname"_outfiles_tmp.txt
 rm "$runname"_outfiles_tmp.txt
 
-# Convert any daily output files to CSV as well.
-# N.B. Some .out files have weird headers--see notes/outfile-headers.txt.
-# We don't fix those here, we just turn them from invalid
-# space-delimited headers into invalid CSV headers.
-../bash/out2csv.sh -a -d $runname $dirname outfiles.in
-
 # OK, let's plot some diagnostics.
 Rscript ../R/plotlis.r "$dirname".csv somtc som3c som2c.2. somte.1. somse.1. tminrl.1. cproda aglivc stdedc agcprd bgcjprd bgcmprd som2e.1.1. som2e.2.1. som3e.1. stream.2. stream.5. stream.6.
-
-
