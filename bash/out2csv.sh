@@ -80,22 +80,29 @@ fi
 
 ## 2. Predefine some sed operations:
 
-# Remove headers, probably to append output to an existing CSV.
-# Files differ in header length (0-2 lines), and data are all numeric,	
-# so we just assume a line is a header iff it contains letters.
-killhead='/[a-zA-Z]/d;' 
+# Remove headers, probably to append output to an existing CSV. This is
+# trickier than it sounds.
+# Files differ in header length (0-2 lines)
+#	=> can't remove a fixed number of lines.
+# Data lines are 'numeric' but may contain some letters, e.g "1.03E-05".
+# 	=> Can't assume letters = header.
+# Current approach: assume any line that BEGINS with letters (possibly after
+#	a space) is a header.
+killhead='/^ *[a-zA-Z]/d;'
 
-# waterbal.out has a weird extra first-line header: 
-# "0=(swc1-swc2)..." Drop this if it's there.
-killwbalhead='/^0=\(swc1-swc2\)/d;' 	
+# watrbal.out has a weird extra first-line header:
+# "0=(swc1-swc2)...", which doesn't start with a letter
+# and which we never want even when keeping other headers.
+# ==> Drop this if it exists.
+killwbalhead='/^0=\(swc1-swc2\)/d;'
 
-# To each header (or at least "contains letters") line,
+# To each header (or at least "begins with a letter") line,
 # Add a column to be filled with the name of the current run.
-addrunhead='/[a-zA-Z]/ s/^ */run,/;'
+addrunhead='/^ *[a-zA-Z]/ s/^ */run,/;'
 
-# Add the name of the current run to the beginning of 
-# each non-header (or at least "contains no letters") line.
-addrunname='/[a-zA-Z]/! s/^ */'"$runname"',/;'
+# Add the name of the current run to the beginning of
+# each non-header (or at least "begins with a non-letter") line.
+addrunname='/^ *[a-zA-Z]/! s/^ */'"$runname"',/;'
 
 # Wrap double quotes around fields with pre-existing commas, 
 # so they aren't treated as field separators 
@@ -105,6 +112,9 @@ protectcomma='s/([^ ]+,[^ ]+)/"\1"/g;'
 # Remove trailing whitespace or commas, 
 # to prevent empty CSV columns.
 killtrailing='s/[ ,]+$//;'
+
+# Remove lines that are empty or all whitespace.
+killempty='/^ *$/d;'
 
 # Convert all runs of spaces to a single comma delimiter.
 # Fun fact: This one conversion usually cuts the filesize in half!
@@ -126,13 +136,14 @@ while read -a f; do # reading from input file
 		> "$outfile"
 	fi
 	if [ $append ] && [ -e "$outfile" ]; then
-		headerop='1,2 {'"$killhead"'}' 
+		headerop='1,2 {'"$killwbalhead $killhead"'}'
 	else
 		headerop='1,2 {'"$killwbalhead $addrunhead"'};'
 	fi
 	if test ${f[1]:(-3)} = "csv"; then # dc_sip.csv, harvest.csv
 		sed -E \
 			-e "$headerop" \
+			-e "$killempty" \
 			-e "$addrunname" \
 			-e "$killtrailing" \
 			${f[1]} >> "$outfile"
@@ -140,6 +151,7 @@ while read -a f; do # reading from input file
 	    sed -E \
 	    	-e '1,2 {'"$protectcomma"'};' \
 	    	-e "$headerop" \
+			-e "$killempty" \
 			-e "$addrunname" \
 			-e "$killtrailing" \
 			-e "$spacetocomma" \
