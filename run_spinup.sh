@@ -52,26 +52,10 @@ time DailyDayCent -s $schedfile -n $runname 2>&1 | tee -a $runname.log
 # 	Third: vars_to_extract.txt, specified INCLUDING the .txt
 DailyDayCent_list100 $runname $runname outvars.txt
 
-# Convert space-delimited list output to CSV for easier analysis...
-# ... and for ~50% filesize savings!
-# First the header:
-#	convert any commas in variable names to periods,
-#	Add run name to beginning of each line,
-#	remove end-of-line spaces to prevent empty columns,
-#	then convert each remaining run of spaces to one comma.
-if [ ! -e "$dirname".csv ]; then
-	head -n1 $runname.lis | sed -E \
-		's/,/./g;
-		s/^ +/run,/;
-		s/ +$//;
-		s/ +/,/g' > "$dirname".csv
-fi
-# Now the body, which is all numeric--no pre-existing commas to worry about
-tail -n+2 "$runname".lis | sed -E \
-	's/^ +/'"$runname"',/;
-	s/ +$//;
-	s/ +/,/g' >> "$dirname".csv
-rm "$runname".lis
+# Convert list100 output to CSV, with help from a fake outfiles.in.
+echo "1 $runname.lis" > "$runname"_outfiles_tmp.txt
+../bash/out2csv.sh -a -d $runname $dirname "$runname"_outfiles_tmp.txt
+rm "$runname"_outfiles_tmp.txt
 
 # Convert any daily output files to CSV as well.
 # N.B. Some .out files have weird headers--see notes/outfile-headers.txt.
