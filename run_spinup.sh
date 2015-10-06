@@ -28,12 +28,12 @@ fi
 # Beware: overwrites any existing versions of these files!
 ln -sf ../common_100s/* .
 
-ln -sf ../run_specific/spin_fix.100 fix.100
-ln -sf ../run_specific/spin_soyface.100 soyface.100
-ln -sf ../run_specific/spin_outfiles.in outfiles.in
-ln -sf ../run_specific/spin_outvars.txt outvars.txt
-ln -sf ../run_specific/spin_sitepar.in sitepar.in
-ln -sf ../run_specific/spin_soils.in soils.in
+ln -sf ../differing_100s/spin_fix.100 fix.100
+ln -sf ../differing_100s/spin_soyface.100 soyface.100
+ln -sf ../differing_100s/spin_outfiles.in outfiles.in
+ln -sf ../differing_100s/spin_outvars.txt outvars.txt
+ln -sf ../differing_100s/spin_sitepar.in sitepar.in
+ln -sf ../differing_100s/spin_soils.in soils.in
 
 # Randomize order of years in weather file,
 # but keep days of each year together
