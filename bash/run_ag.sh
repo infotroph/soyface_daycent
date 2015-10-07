@@ -28,7 +28,7 @@ ln -sf ../differing_100s/ag_sitepar.in sitepar.in
 ln -sf ../differing_100s/ag_soils.in soils.in
 
 # Link in binary from spinup run. Edit if spinup names change!
-ln -sf  ../spin/spin1.bin spin.bin
+ln -sf  ../out_spin/spin1.bin spin.bin
 
 # Randomize order of years in first weather file,
 # but keep days of each year together
