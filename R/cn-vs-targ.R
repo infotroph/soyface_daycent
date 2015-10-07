@@ -2,45 +2,42 @@
 
 library(ggplot2)
 library(grid)
-source("~/R/ggplot-ticks/mirror.ticks.r")
-source("../tools/ggthemes.r")
-
+library(DeLuciatoR) # See https://github.com/infotroph/DeLuciatoR
+library(devtools)
+source_url("https://raw.githubusercontent.com/infotroph/ggplot-ticks/master/mirror.ticks.r")
+theme_set(theme_ggEHD(16))
 
 args = commandArgs(trailingOnly = TRUE)
 
-# assumes reading from a monthly .lis file
-targets= read.csv("~/UI/daycent/sfsiteval/soilc-target-vals.csv")
+targets= read.csv("../validation_data/soilc-target-vals.csv")
 
+# assumes reading from a (csv converted from a) monthly .lis file
 lis= read.csv(args[1])
 lis=lis[lis$time>=1850,]
 lis.yr = aggregate(lis, by=list(run=lis$run, year=floor(lis$time)), mean)
 
-png(
-	filename=paste(args[1], "_somtc_vs_targ.png", sep=""),
-	width=10.5,
-	height=7,
-	units="in",
-	res=300)
-plt=(ggplot(data=targets, aes(x=year, y=gC.m2.top20)) 
+plt=(ggplot(data=targets, aes(x=sim_year, y=g_soilC_m2_top20))
+	+ xlab("Year")
 	+ ylab(expression(paste("g C ", m^-2)))
 	+ geom_point(aes(color=site), size=4)
-	+ geom_line(data=lis.yr, aes(x=year, y=somtc, fill="DayCENT"))
-	+ theme_delucia())
-plot(mirror.ticks(plt))
-dev.off()
-rm(plt)
-
-png(
-	filename=paste(args[1], "_somtn_vs_targ.png", sep=""), 
-	width=10.5,
-	height=7,
+	+ geom_line(data=lis.yr, aes(x=year, y=somtc, fill="DayCENT")))
+png_ggsized(
+	ggobj = mirror.ticks(plt),
+	filename=paste0(args[1], "_somtc_vs_targ.png"),
+	maxwidth=10.5,
+	maxheight=7,
 	units="in",
 	res=300)
-plt=(ggplot(data=targets, aes(x=year, y=gN.m2.top20))
+
+plt=(ggplot(data=targets, aes(x=sim_year, y=g_soilN_m2_top20))
+	+ xlab("Year")
 	+ ylab(expression(paste("g N ", m^-2)))
 	+ geom_point(aes(color=site), size=4)
-	+ geom_line(data=lis.yr, aes(x=year, y=somte.1., fill="DayCENT"))
-	+ theme_delucia())
-plot(mirror.ticks(plt))
-dev.off()
-rm(plt)
+	+ geom_line(data=lis.yr, aes(x=year, y=somte.1., fill="DayCENT")))
+png_ggsized(
+	ggobj = mirror.ticks(plt),
+	filename=paste0(args[1], "_somtn_vs_targ.png"),
+	maxwidth=10.5,
+	maxheight=7,
+	units="in",
+	res=300)
