@@ -32,7 +32,7 @@ ln -sf  ../spin/spin1.bin spin.bin
 
 # Randomize order of years in first weather file,
 # but keep days of each year together
-Rscript ../R/weather-shuffler.r ../weather/cu.wth cushuf.wth
+Rscript ../R/weather-shuffler.R ../weather/cu.wth cushuf.wth
 
 # Second weather file is not shuffled
 ln -sf ../weather/cu.wth cu.wth
@@ -51,6 +51,6 @@ rm outfiles_tmp.txt
 
 # Plot output & diagnostics
 lisvars=($(< outvars.txt))
-Rscript ../R/plotlis.r "$dirname"_binmonthly.csv ${lisvars[@]}
+Rscript ../R/plotlis.R "$dirname"_binmonthly.csv ${lisvars[@]}
 Rscript ../R/cn-vs-targ.R "$dirname"_binmonthly.csv
 Rscript ../R/harvest-vs-nass.R "$dirname"_harvest.csv

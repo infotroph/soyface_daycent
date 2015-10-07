@@ -33,7 +33,7 @@ ln -sf ../differing_100s/spin_soils.in soils.in
 
 # Randomize order of years in weather file,
 # but keep days of each year together
-Rscript ../R/weather-shuffler.r ../weather/cu.wth cushuf.wth
+Rscript ../R/weather-shuffler.R ../weather/cu.wth cushuf.wth
 
 # Run the model, report time spent, capture output to log.
 time DailyDayCent -s ../schedules/spin.sch -n $runname 2>&1 | tee -a $runname.log
@@ -59,4 +59,4 @@ rm outfiles_tmp.txt
 
 # OK, let's plot some diagnostics.
 lisvars=($(< outvars.txt))
-Rscript ../R/plotlis.r "$dirname"_binmonthly.csv ${lisvars[@]}
+Rscript ../R/plotlis.R "$dirname"_binmonthly.csv ${lisvars[@]}
