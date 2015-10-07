@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run historical agriculture stage of SoyFACE climate change simulations.
-# Usage example: $(./run_ag.sh ag_test aghistory)
+# Usage example: $(./bash/run_ag.sh ag_test aghistory)
 # See run_spin.sh for more complete notes/warnings about each step.
 
 runname=$1
