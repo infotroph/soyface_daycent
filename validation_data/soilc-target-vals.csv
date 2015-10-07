@@ -1,0 +1,60 @@
+site,citation,DOI,sim_year,rotation,soil_series, bulk_density, g_soilC_kg, g_soilN_kg, layer_top_cm, layer_bottom_cm,g_soilC_m2_thislayer,g_soilN_m2_thislayer,g_soilC_m2_top20,g_soilN_m2_top20,note
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,1850,prairie,Drummer,0.6,100,8.2,0,5,3000,246,10760,941,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,1850,prairie, Wauconda,0.8,87,6.5,0,5,3480,260,13155,972.5,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,1850,prairie,Drummer,0.8,72,6.5,5,15,5760,520,,,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,1850,prairie, Wauconda,1,72,5.2,5,15,7200,520,,,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,1850,prairie,Drummer,1,40,3.5,15,25,4000,350,,,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,1850,prairie, Wauconda,1.1,45,3.5,15,25,4950,385,,,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,2000,cultivated,Drummer,0.95,38,3,0,5,1805,142.5,7955,672.5,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,2000,cultivated, Wauconda,1,32,2.8,0,5,1600,140,7180,616,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,2000,cultivated,Drummer,1.2,35,2.9,5,15,4200,348,,,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,2000,cultivated, Wauconda,1.3,30,2.6,5,15,3900,338,,,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,2000,cultivated,Drummer,1.3,30,2.8,15,25,3900,364,,,
+Batavia IL,[@Matamala:2008fz],10.1890/07-1609.1,2000,cultivated, Wauconda,1.2,28,2.3,15,25,3360,276,,,
+Garfield AR,[@Brye:2009hg],10.1097/SS.0b013e3181a93daa,1850,prairie,Jay,1.1,26.5,1.8,0,10,2910,200,,,"soil C reported as g/m^2, g/kg  are back-calculated. No values reported from layers >10 cm."
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,1850,prairie,Wacousta,0.96,99.7,7.35,0,5,4785.6,352.8,12379.2,965.28,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,1850,prairie,Wacousta,0.96,78.2,6.04,5,10,3753.6,289.92,,,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,1850,prairie,Wacousta,0.96,40,3.36,10,25,5760,483.84,,,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,2006,annual cult,Wacousta,1.4,31.4,2.33,0,5,2198,163.1,8358,608.3,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,2006,annual cult,Wacousta,1.4,32,2.34,5,10,2240,163.8,,,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,2006,annual cult,Wacousta,1.4,28,2.01,10,25,5880,422.1,,,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,2006,biennial cult,Wacousta,1.28,41.6,3.23,0,5,2662.4,206.72,9683.2,745.6,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,2006,biennial cult,Wacousta,1.28,40.1,3.16,5,10,2566.4,202.24,,,
+Lake Mills WI,[@Jelinski:2009dy],10.2136/sssaj2007.0424,2006,biennial cult,Wacousta,1.28,34.8,2.63,10,25,6681.6,504.96,,,
+Loda IL,[@David:2009eu],10.2134/jeq2008.0132,1850,prairie,Clarence,0.95,58.6,4.7,0,20,11134,893,11134,893,
+Loda IL,[@David:2009eu],10.2134/jeq2008.0132,2002,cultivated,Clarence,1.43,28.6,2.6,0,20,8179.6,743.6,8179.6,743.6,
+Madison WI,[@Kucharik:2006be],10.1111/j.1365-2486.2005.01053.x,1850,prairie,Sable,0.87,54,4.6,0,10,4698,400.2,8352,704.7,
+Madison WI,[@Kucharik:2006be],10.1111/j.1365-2486.2005.01053.x,1850,prairie,Sable,0.87,42,3.5,10,25,5481,456.75,,,
+Mayview IL,[@David:2009eu],10.2134/jeq2008.0132,1904,cultivated,Drummer,1.3,48.5,4.3,0,20,12610,1118,12610,1118,bulkd estimated
+Mayview IL,[@David:2009eu],10.2134/jeq2008.0132,2002,cultivated,Drummer,1.36,23.7,2.1,0,20,6446.4,571.2,6446.4,571.2,
+Metcalf IL,[@David:2009eu],10.2134/jeq2008.0132,1904,cultivated,Flanagan,1.3,37.7,3.8,0,20,9802,988,9802,988,bulkd estimated
+Metcalf IL,[@David:2009eu],10.2134/jeq2008.0132,2002,cultivated,Flanagan,1.24,24.1,2.3,0,20,5976.8,570.4,5976.8,570.4,
+Ogden IL,[@David:2009eu],10.2134/jeq2008.0132,1957,cultivated,Drummer,1.2,30.7,2.7,0,20,7368,648,7368,648,
+Ogden IL,[@David:2009eu],10.2134/jeq2008.0132,2002,cultivated,Drummer,1.46,22.5,2.2,0,20,6570,642.4,6570,642.4,
+Paxton IL,[@David:2009eu],10.2134/jeq2008.0132,1850,prairie,Swygert,0.95,51.8,4.1,0,20,9842,779,9842,779,
+Paxton IL,[@David:2009eu],10.2134/jeq2008.0132,2002,cultivated,Swygert,1.3,18.1,1.6,0,20,4706,416,4706,416,
+Sheldon IL,[@David:2009eu],10.2134/jeq2008.0132,1957,cultivated,Drummer,1.17,39.7,3.3,0,20,9289.8,772.2,9289.8,772.2,
+Sheldon IL,[@David:2009eu],10.2134/jeq2008.0132,2002,cultivated,Drummer,1.3,29.3,2.5,0,20,7618,650,7618,650,
+Urbana IL (Morrow Plot 4SB),[@Aref:1998we],10.1016/S0065-2113(08)60568-4,1904,corn-oat,Flanagan,1.3,25.6,2.02,0,15,4992,393.9,6656,525.2,bulkd estimated
+Urbana IL (Morrow Plot 4SB),[@Aref:1998we],10.1016/S0065-2113(08)60568-4,1923,corn-oat,Flanagan,1.3,26.5,2.06,0,15,5167.5,401.7,6890,535.6,bulkd estimated
+Urbana IL (Morrow Plot 4SB),[@Aref:1998we],10.1016/S0065-2113(08)60568-4,1948,corn-oat,Flanagan,1.3,26.3,1.99,0,15,5128.5,388.05,6838,517.4,bulkd estimated
+Urbana IL (Morrow Plot 4SB),[@Aref:1998we],10.1016/S0065-2113(08)60568-4,1961,corn-oat,Flanagan,1.3,25.1,2,0,15,4894.5,390,6526,520,bulkd estimated
+Urbana IL (Morrow Plot 4SB),[@Aref:1998we],10.1016/S0065-2113(08)60568-4,1983,corn-oat,Flanagan,1.3,22,1.93,0,15,4290,376.35,5720,501.8,bulkd estimated
+Urbana IL (SoyFACE),[@Peralta:2008p4145],10.1007/s11104-007-9474-3,2001,cultivated,Drummer-Flanagan,1.22,30.3,2.3,0,12.5,4620.75,350.75,7283.325,557.075,
+Urbana IL (SoyFACE),[@Moran:2010p4144],10.1016/j.envpol.2009.07.005,2001,cultivated,Drummer-Flanagan,1.24,27.92,2.28,0,12.5,4327.6,353.4,6900.4,570.48,
+Urbana IL (SoyFACE),[@Peralta:2008p4145],10.1007/s11104-007-9474-3,2001,cultivated,Drummer-Flanagan,1.31,27.1,2.1,12.5,25,4437.625,343.875,,,
+Urbana IL (SoyFACE),[@Moran:2010p4144],10.1016/j.envpol.2009.07.005,2001,cultivated,Drummer-Flanagan,1.34,25.6,2.16,12.5,25,4288,361.8,,,
+Urbana IL (SoyFACE),[@Peralta:2008p4145],10.1007/s11104-007-9474-3,2004,eCO2,Drummer-Flanagan,1.27,27.7,2.1,0,12.5,4397.375,333.375,6967.775,537.375,
+Urbana IL (SoyFACE),[@Peralta:2008p4145],10.1007/s11104-007-9474-3,2004,eCO2,Drummer-Flanagan,1.36,25.2,2,12.5,25,4284,340,,,
+Urbana IL (SoyFACE),[@Peralta:2008p4145],10.1007/s11104-007-9474-3,2004,cultivated,Drummer-Flanagan,1.24,27,2.2,0,12.5,4185,341,6835.95,556.775,
+Urbana IL (SoyFACE),[@Peralta:2008p4145],10.1007/s11104-007-9474-3,2004,cultivated,Drummer-Flanagan,1.37,25.8,2.1,12.5,25,4418.25,359.625,,,
+Urbana IL (SoyFACE),[@Moran:2010p4144],10.1016/j.envpol.2009.07.005,2006,eCO2,Drummer-Flanagan,1.23,26.29,2.25,0,12.5,4042.0875,345.9375,6416.1675,544.6575,
+Urbana IL (SoyFACE),[@Moran:2010p4144],10.1016/j.envpol.2009.07.005,2006,eCO2,Drummer-Flanagan,1.28,24.73,2.07,12.5,25,3956.8,331.2,,,
+Urbana IL (SoyFACE),[@Moran:2010p4144],10.1016/j.envpol.2009.07.005,2007,eCO2,Drummer-Flanagan,1.19,25.7,2.2,0,12.5,3822.875,327.25,6900.4,570.48,
+Urbana IL (SoyFACE),[@Moran:2010p4144],10.1016/j.envpol.2009.07.005,2007,eCO2,Drummer-Flanagan,1.29,24.39,2.08,12.5,25,3932.8875,335.4,,,
+Urbana IL (SoyFACE),"(C.K. Black, unpublished)",NA,2009,eCO2,Drummer-Flanagan,1.2,28.4,2.2,0,10,3408,264,6619,524,
+Urbana IL (SoyFACE),"(C.K. Black, unpublished)",NA,2009,eCO2,Drummer-Flanagan,1.3,24.7,2,10,30,6422,520,,,
+Urbana IL (SoyFACE),"(C.K. Black, unpublished)",NA,2009,cultivated,Drummer-Flanagan,1.2,30.1,2.4,0,10,3612,288,7070,561,bulkd estimated
+Urbana IL (SoyFACE),"(C.K. Black, unpublished)",NA,2009,cultivated,Drummer-Flanagan,1.3,26.6,2.1,10,30,6916,546,,,bulkd estimated
+Weston IL,[@David:2009eu],10.2134/jeq2008.0132,1850,prairie,Varna,0.95,53.4,4.3,0,20,10146,817,10146,817,
+Weston IL,[@David:2009eu],10.2134/jeq2008.0132,2002,cultivated,Varna,1.3,31.1,2.5,0,20,8086,650,8086,650,
