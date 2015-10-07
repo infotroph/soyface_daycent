@@ -4,7 +4,7 @@
 # as an extension of sf20th.bin.
 2001          Starting year
 2109          Last year
-soyface_corn.100           Site file name
+soyface.100           Site file name
 0             Labeling type
 -1            Labeling year
 -1.00         Microcosm
