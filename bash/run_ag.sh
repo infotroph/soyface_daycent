@@ -27,6 +27,9 @@ ln -sf ../differing_100s/ag_outvars.txt outvars.txt
 ln -sf ../differing_100s/ag_sitepar.in sitepar.in
 ln -sf ../differing_100s/ag_soils.in soils.in
 
+# Link in binary from spinup run. Edit if spinup names change!
+ln -sf  ../spin/spin1.bin spin.bin
+
 # Randomize order of years in first weather file,
 # but keep days of each year together
 Rscript ../R/weather-shuffler.r ../weather/cu.wth cushuf.wth
@@ -35,7 +38,7 @@ Rscript ../R/weather-shuffler.r ../weather/cu.wth cushuf.wth
 ln -sf ../weather/cu.wth cu.wth
 
 # Run the model, report time spent, capture output to log.
-time DailyDayCent -s ../schedules/ag.sch -n $runname 2>&1 | tee -a $runname.log
+time DailyDayCent -s ../schedules/ag.sch -n $runname -e spin.bin 2>&1 | tee -a $runname.log
 
 # Convert daily output files to CSV
 ../bash/out2csv.sh -a -d $runname "$dirname"_ outfiles.in
