@@ -36,7 +36,7 @@ ln -sf ../weather/tminscale.dat tminscale.dat
 ln -sf ../weather/tmaxscale.dat tmaxscale.dat
 
 # Link in binary from ag run. Edit if names change!
-ln -sf  ../agtest/ag1.bin ag.bin
+ln -sf  ../out_ag/ag1.bin ag.bin
 
 for trt in ${trtary[*]}; do
 	echo "Treatment $trt" | tee -a  "$runname".log
