@@ -2,9 +2,8 @@
 
 library(ggplot2)
 library(grid)
-library(DeLuciatoR) # See https://github.com/infotroph/DeLuciatoR
-library(devtools)
-source_url("https://raw.githubusercontent.com/infotroph/ggplot-ticks/master/mirror.ticks.r")
+library(DeLuciatoR) # https://github.com/infotroph/DeLuciatoR
+library(ggplotTicks) # https://github.com/infotroph/ggplotTicks
 theme_set(theme_ggEHD(16))
 
 args = commandArgs(trailingOnly = TRUE)
