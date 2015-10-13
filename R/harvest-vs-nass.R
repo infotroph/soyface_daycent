@@ -67,7 +67,7 @@ pltcorn = (ggplot(data=cornharv, aes(x=year))
 	# + geom_point(data=corntargets, aes(x=Year, y=gCm2, color="NASS"))
 	+ geom_line(aes(y=cgrain, color="DayCENT"))
 	+ geom_point(aes(y=cgrain, color="DayCENT"))
-	+ ylab(expression(paste("Corn grain, g C ", m^-2))))
+	+ ylab(expression(paste("Maize grain, g C ", m^-2))))
 png_ggsized(
 	ggobj = mirror.ticks(pltcorn),
 	filename=paste0(args[1], "_corn_vs_nass.png"),
@@ -81,7 +81,7 @@ pltcornshoot = (ggplot(data=cornharv, aes(x=year))
 	# + geom_point(data=corntargets, aes(x=Year, y=estshootC, color="NASS"))
 	+ geom_line(aes(y=agcacc, color="DayCENT"))
 	+ geom_point(aes(y=agcacc, color="DayCENT"))
-	+ ylab(expression(paste("Corn shoot biomass, g C ", m^-2))))
+	+ ylab(expression(paste("Maize shoot biomass, g C ", m^-2))))
 png_ggsized(
 	ggobj = mirror.ticks(pltcornshoot),
 	filename=paste0(args[1], "_cornshoot_vs_nass.png"),
@@ -109,8 +109,8 @@ pltcornlm = (ggplot(data=cornharv, aes(x=NASScgrain, y=cgrain))
 	+ geom_point()
 	+ geom_smooth(method="lm")
 	+ geom_abline(intercept=0, slope=1, lty="dashed")
-	+ xlab(expression(paste("NASS corn grain, g C ", m^-2)))
-	+ ylab(expression(paste("DayCENT corn grain, g C ", m^-2)))
+	+ xlab(expression(paste("NASS maize grain, g C ", m^-2)))
+	+ ylab(expression(paste("DayCENT maize grain, g C ", m^-2)))
 	+ geom_text(aes(x=150, y=400, label=lm_eqn(cornlm)), parse=TRUE)) # adjust x,y as needed
 png_ggsized(
 	ggobj = mirror.ticks(pltcornlm),
@@ -125,8 +125,8 @@ pltcornshootlm = (ggplot(data=cornharv, aes(x=NASSagcacc, y=agcacc))
 	+ geom_point()
 	+ geom_smooth(method="lm")
 	+ geom_abline(intercept=0, slope=1, lty="dashed")
-	+ xlab(expression(paste("NASS corn shoot biomass (est from grain), g C ", m^-2)))
-	+ ylab(expression(paste("DayCENT corn shoot biomass, g C ", m^-2)))
+	+ xlab(expression(paste("NASS maize shoot biomass (est from grain), g C ", m^-2)))
+	+ ylab(expression(paste("DayCENT maize shoot biomass, g C ", m^-2)))
 	+ geom_text(aes(x=200, y=700, label=lm_eqn(cornshootlm)), parse=TRUE)) # adjust x,y as needed
 png_ggsized(
 	ggobj = mirror.ticks(pltcornshootlm),
