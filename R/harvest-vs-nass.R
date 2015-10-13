@@ -152,12 +152,11 @@ png_ggsized(
 	units="in",
 	res=300)
 
-theme_set(theme_ggEHD(8))
 # Can't use png_ggsized here: It expects a ggplot or gtable object,
 # grid.arrange produces a grid object.
 png(filename=paste(args[1], "_grainvsnass.png", sep=""),
-	width=13,
-	height=13,
+	width=11,
+	height=8.5,
 	units="in",
 	res=300)
 grid.arrange(
