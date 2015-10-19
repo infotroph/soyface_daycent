@@ -2,11 +2,11 @@
 
 library(ggplot2)
 library(grid)
-source("~/R/ggplot-ticks/mirror.ticks.r")
-source("../tools/ggthemes.r")
+library(ggplotTicks)
+library(DeLuciatoR)
 
-sfbiomass.ctrl = read.csv("../sfsiteval/SoyFACE-Soymass-ctrl.csv", na.strings=".")
-sfbiomass.co2 = read.csv("../sfsiteval/SoyFACE-Soymass-co2.csv", na.strings=".")
+sfbiomass.ctrl = read.csv("../validation_data/private/SoyFACE-Soymass-ctrl.csv", na.strings=".")
+sfbiomass.co2 = read.csv("../validation_data/private/SoyFACE-Soymass-co2.csv", na.strings=".")
 sfbiomass = rbind(sfbiomass.ctrl, sfbiomass.co2)
 rm(list=c("sfbiomass.ctrl", "sfbiomass.co2"))
 
@@ -52,7 +52,7 @@ plt=(ggplot(
 	+ylab(expression(paste("Shoot biomass, g C ", m^-2)))
 	+xlab("Day of year")
 	+scale_color_manual(values=c(ctrl="black", co2="grey"))
-	+theme_delucia())
+	+theme_ggEHD())
 plot(mirror.ticks(plt))
 dev.off()
 rm(plt)
