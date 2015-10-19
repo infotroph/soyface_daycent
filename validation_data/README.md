@@ -26,6 +26,22 @@ A few datasets I used for model validation are NOT included here, because they i
 	- `g_soilC_m2_thislayer`, `g_soilN_m2_thislayer`: total area-basis SOC/SON in this soil layer. Derived units; should be equal to e.g. `(g_soilC_kg)/(1000 g/kg)*(bulk_density)*(layer_bottom_cm - layer_top_cm)*(10000 cm^2/m^2)`.
 	- `g_soilC_m2_top20`, `g_soilN_m2_top20`: Total grams of SOC/SON, to a depth of 20 cm, per square meter (the same units DayCent reports). Since these values sum over several lines of the rest of the file, I report them on the line corresponding to the shallowest reported layer and leave deeper layers blank in this column. (Yes, it would have been much better to make a separate table for the totals. Next time!)
 
+* `soyface-2009to2011-soilresp.csv`
+
+	Mixed-model estimates of treatment mean±SE respiration rates in the T-FACE experimental plots on each measurement day of the heating experiment. I do have the raw data these are calculated from and I ought to post them somewhere, but for Daycent diagnostics the treatment means are easier to deal with.
+
+	Key to columns (Many are messy od redundant -- this is a barely-cleaned copy-paste of SAS output! I only use `Heat`, `CO2`, `Estimate`, `Std.Err`, `Date`, `Part`, `Season`.):
+
+	- `Effect`: This column is constant here: always `Heat*CO2*Day`.
+	- `Heat`: Heat treatment. `c`=ambient temperature, `h`=canopy temperature increased by overhead infrared heating to a target of 3.5 °C aboe ambient.
+	- `CO2`: CO2 treatment. `Ambient`=ambient field conditions (~385 ppm CO2), `Elevated`=FACE fumigation to a target of 585 ppm.
+	- `Day`: Sampling date, formatted YYYYMMDD. When it took more than one day to complete a round of measurements and weather was constant, I collapsed dates and recorded Day as the midpoint. When it took more than five days to complete a sampling or weather changed in the middle, I recorded them as separate samplings with smaller N.
+	- `Estimate`, `Std.err`: Predicted mean and standard error of respiration rate for this day/treatment combo, calculated as an LS mean.
+	- `DF`, `t.val`, `Pr.t`: Kenward-Roger corrected tests for the (completely uninteresting) hypothesis that respiration = 0 for each treatment/day combo.
+	- `Date`: Same as `Day`, but formatted YYYY-MM-DD instead of YYYYMMDD.
+	- `Part`: Which component of soil respiration this estimate applies to. `Rtot`=whole soil, `Raut`=roots+rhizosphere, `Rhet`=soil heterotrophs.
+	- `Season`: Which crop (if any) was in the field during the measurement?
+
 * `private/`
 
 	If you're reading the public version of this repository, this directory does not exist! It's where I store the validation datasets that I don't have permission to share in public, which are:
