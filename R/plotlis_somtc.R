@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+# A specialized variant of plotlis.R, created mostly to present annual values instead of monthly fluctuations for the publication version of total SOM C predictions.
+
 library(ggplot2)
 library(grid)
 library(dplyr)
