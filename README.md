@@ -8,7 +8,7 @@ Work in progress! This repository should eventually contain:
 - [ ] Validation scripts (mostly R).
 - [ ] Archive of validation data (excluding unpublished values shared by others).
 - [ ] Archive of final model output.
-- [ ] Plotting code for final figures (in R).
+- [x] Plotting code for final figures (in R).
 - [ ] Documentation of all of the above.
 
 ## The general scheme
