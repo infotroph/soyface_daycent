@@ -28,7 +28,9 @@ A few datasets I used for model validation are NOT included here, because they i
 
 * `private/`
 
-	If you're reading the public version of this repository, this directory does not exist! It's where I store the validation datasets that I don't have permission to share in public.
+	If you're reading the public version of this repository, this directory does not exist! It's where I store the validation datasets that I don't have permission to share in public, which are:
+
+	- `SoyFACE-Soymass-ctrl.csv`, `SoyFACE-Soymass-co2.csv`: Measurements of soybean plant biomass, broken down by CO2 treatment and component (stem, leaf, seed, root), from ~biweekly destructive harvests throughout the 2001 to 2007 growing seasons. Provided to CKB by Andrew D.B. Leakey; contains data from at least the A. Leakey, L. Ainsworth, R. Nelson labs. This dataset was discussed, but not made accessible, in [Twine et al. 2013](dx.doi.org/10.1111/gcb.12270).
 
 ## Further notes on validation that need to live somewhere
 
