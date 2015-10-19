@@ -38,11 +38,6 @@ livec = livec[livec$Year %in% c(2001, 2003, 2005, 2007),,drop=FALSE]
 livec = livec[-which(livec$time < 2009 & livec$run %in% c("heat", "heatco2")),]
 
 # aboveground biomass through the growing season.
-png(filename=paste(argv[1], "_abvC-seasonal.png", sep=""),
-	width=10.5,
-	height=7,
-	units="in",
-	res=300)
 plt=(ggplot(
 		sfbiomass, 
 		aes(Julian.Day, shoot.C, color=CO2))
@@ -51,11 +46,23 @@ plt=(ggplot(
 	+facet_wrap(~Year)
 	+ylab(expression(paste("Shoot biomass, g C ", m^-2)))
 	+xlab("Day of year")
-	+scale_color_manual(values=c(ctrl="black", co2="grey"))
-	+theme_ggEHD())
-plot(mirror.ticks(plt))
-dev.off()
-rm(plt)
+	+scale_color_manual(
+		values=c(ctrl="black", co2="grey"),
+		labels=c(ctrl="Control", co2=expression(CO[2])))
+	+theme_ggEHD()
+	+theme(
+		legend.title=element_blank(),
+		legend.position=c(0.6, 0.80),
+		legend.key=element_blank(),
+		legend.background=element_blank(),
+		legend.text.align=0))
+png_ggsized(
+	mirror.ticks(plt),
+	filename=paste(argv[1], "_abvC-seasonal.png", sep=""),
+	maxwidth=10.5,
+	maxheight=7,
+	units="in",
+	res=300)
 
 # library(dplyr)
 
