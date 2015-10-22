@@ -17,10 +17,12 @@ else
 fi
 mkdir -p $dirname
 cd $dirname
-if [ -e "$runname".bin ]; then
-	echo 'Error: '"$runname"'.bin already exists!'
-	exit 1
-fi
+for trt in ${trtary[*]}; do
+	if [ -e "$runname$trt".bin ]; then
+		echo 'Error: '"$runname$trt"'.bin already exists!'
+		exit 1
+	fi
+done
 
 # Link in Daycent parameters
 # Beware: overwrites any existing .100 files in $dirname/!
