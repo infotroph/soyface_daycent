@@ -132,7 +132,8 @@ pltl=(ggplot(data=dcresp_long,
 		legend.title=element_blank(),
 		legend.key=element_blank(),
 		legend.background=element_blank(),
-		legend.text.align=0)
+		legend.text.align=0,
+		strip.background=element_blank())
 	+guides(col=guide_legend(ncol=2))
 	+labs(
 		y=expression(paste("Soil ", CO[2],  " efflux, µmol ", m^{-2}, " ", sec^{-1}))))
@@ -143,4 +144,4 @@ png_ggsized(
 	maxwidth=6.5,
 	maxheight=9,
 	units="in",
-	res=600)
+	res=300)

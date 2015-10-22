@@ -55,7 +55,8 @@ plt=(ggplot(
 		legend.position=c(0.6, 0.80),
 		legend.key=element_blank(),
 		legend.background=element_blank(),
-		legend.text.align=0))
+		legend.text.align=0,
+		strip.background=element_blank()))
 png_ggsized(
 	mirror.ticks(plt),
 	filename=paste(argv[1], "_abvC-seasonal.png", sep=""),

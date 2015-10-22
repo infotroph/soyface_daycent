@@ -50,4 +50,4 @@ png_ggsized(
 	maxheight=9,
 	maxwidth=6.5,
 	units="in",
-	res=600)
+	res=300)
