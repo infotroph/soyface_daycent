@@ -1,0 +1,333 @@
+     WARNING: site.100 values for SAND, SILT, CLAY, BULKDEN, and PH will be
+     overwritten with corresponding values from the soils.in file.
+     WARNING: site.100 values for AWILT and AFIEL will be overwritten with
+     corresponding values from the soils.in file.
+Entering function initlyrs
+
+Soil Structure: 
+lyr	dpthmn	dpthmx	bulkd	fieldc	wiltpt	ecoeff	tcoeff	sand	clay	org	swclim	satcond	pH
+  0	  0.0	  2.0	0.95	0.3470	0.1194	0.80	0.01	0.05	0.25	0.05	0.03	0.00063	5.94
+  1	  2.0	  5.0	0.95	0.3470	0.1194	0.20	0.04	0.05	0.25	0.05	0.05	0.00063	5.94
+  2	  5.0	 10.0	0.95	0.3470	0.1194	0.00	0.25	0.05	0.25	0.05	0.07	0.00063	5.94
+  3	 10.0	 20.0	0.95	0.3470	0.1194	0.00	0.30	0.05	0.25	0.04	0.10	0.00063	5.94
+  4	 20.0	 30.0	1.29	0.3470	0.1194	0.00	0.10	0.05	0.25	0.04	0.12	0.00063	5.94
+  5	 30.0	 45.0	1.29	0.3470	0.1194	0.00	0.05	0.05	0.25	0.03	0.12	0.00063	5.94
+  6	 45.0	 60.0	1.65	0.3770	0.1549	0.00	0.04	0.05	0.33	0.03	0.15	0.00036	5.94
+  7	 60.0	 75.0	1.65	0.3770	0.1549	0.00	0.03	0.05	0.33	0.02	0.15	0.00036	5.94
+  8	 75.0	 90.0	1.65	0.3770	0.1549	0.00	0.02	0.05	0.33	0.02	0.15	0.00036	5.94
+  9	 90.0	105.0	1.65	0.3770	0.1549	0.00	0.01	0.05	0.33	0.02	0.15	0.00036	5.94
+ 10	105.0	120.0	1.65	0.3770	0.1549	0.00	0.01	0.05	0.33	0.01	0.15	0.00036	5.94
+ 11	120.0	150.0	1.65	0.3770	0.1151	0.00	0.01	0.28	0.25	0.01	0.12	0.00046	5.94
+ 12	150.0	180.0	1.65	0.3770	0.1151	0.00	0.01	0.28	0.25	0.01	0.12	0.00046	5.94
+
+Calculated soil parameters: 
+lyr	width	depth	thetas	psis	b	binv
+  0	  2.0	  1.0	 48.865	 85.803	 7.010	0.1427
+  1	  3.0	  3.5	 48.865	 85.803	 7.010	0.1427
+  2	  5.0	  7.5	 48.865	 85.803	 7.010	0.1427
+  3	 10.0	 15.0	 48.865	 85.803	 7.010	0.1427
+  4	 10.0	 25.0	 48.865	 85.803	 7.010	0.1427
+  5	 15.0	 37.5	 48.865	 85.803	 7.010	0.1427
+  6	 15.0	 52.5	 48.569	 76.401	 8.266	0.1210
+  7	 15.0	 67.5	 48.569	 76.401	 8.266	0.1210
+  8	 15.0	 82.5	 48.569	 76.401	 8.266	0.1210
+  9	 15.0	 97.5	 48.569	 76.401	 8.266	0.1210
+ 10	 15.0	112.5	 48.569	 76.401	 8.266	0.1210
+ 11	 30.0	135.0	 45.599	 37.162	 6.941	0.1441
+ 12	 30.0	165.0	 45.599	 37.162	 6.941	0.1441
+nelyrs =    2
+Exiting function initlyrs
+Entering function initsite
+usexdrvrs: 0
+sublimscale: 1.000000
+reflec: 0.180000
+albedo: 0.200000
+fswcinit: 1.000000
+dmpflux: 0.000008
+hours_rain: 4.000000
+drainlag: 2
+watertable: 1  1
+watertable: 2  1
+watertable: 3  1
+watertable: 4  1
+watertable: 5  1
+watertable: 6  0
+watertable: 7  0
+watertable: 8  0
+watertable: 9  0
+watertable: 10  0
+watertable: 11  0
+watertable: 12  0
+hpotdeep: 0.000000
+ksatdeep: 0.000300
+Cloud cover:
+cloud cover: 1   52.00
+cloud cover: 2   48.00
+cloud cover: 3   48.00
+cloud cover: 4   45.00
+cloud cover: 5   40.00
+cloud cover: 6   36.00
+cloud cover: 7   33.00
+cloud cover: 8   33.00
+cloud cover: 9   37.00
+cloud cover: 10   47.00
+cloud cover: 11   49.00
+cloud cover: 12   53.00
+tbotmn: 8.000000
+tbotmx: 28.000000
+damping factor: 0.005040
+lag time: 90.000000
+water/temp coeff: 0.030000
+jdayStart: 0
+jdayEnd: 0
+N2O adjustment factor: 0.800000
+Maximum daily nitrifcation amount: 0.400000
+Snow insulating flag: 1
+Fraction of new net mineralization to NO3: 0.050000
+Exiting function initsite
+sitlat =  40.04
+rlatitude =   0.70
+ly   swcinit    swcmin    minpot
+ 0    0.6940    0.0587  -81920.0000
+ly   swcinit    swcmin    minpot
+ 1    1.0410    0.1481  -81920.0000
+ly   swcinit    swcmin    minpot
+ 2    1.7350    0.3468  -81920.0000
+ly   swcinit    swcmin    minpot
+ 3    3.4700    0.9936  -81920.0000
+ly   swcinit    swcmin    minpot
+ 4    3.4700    1.1936  -81920.0000
+ly   swcinit    swcmin    minpot
+ 5    5.2050    1.7904  -81920.0000
+ly   swcinit    swcmin    minpot
+ 6    5.6550    2.3232  -81920.0000
+ly   swcinit    swcmin    minpot
+ 7    5.6550    2.3232  -81920.0000
+ly   swcinit    swcmin    minpot
+ 8    5.6550    2.3232  -81920.0000
+ly   swcinit    swcmin    minpot
+ 9    5.6550    2.3232  -81920.0000
+ly   swcinit    swcmin    minpot
+10    5.6550    2.3232  -81920.0000
+ly   swcinit    swcmin    minpot
+11   11.3100    3.4539  -81920.0000
+ly   swcinit    swcmin    minpot
+12   11.3100    3.4539  -81920.0000
+Output (0/1)  file_name         description
+0             bio.out           # daily above and below ground live carbon
+wrt = 0
+0             soiln.out         # daily soil ammonium and nitrate by layer
+wrt = 0
+0             soiltavg.out      # daily average soil temperature by layer
+wrt = 0
+0             soiltmax.out      # daily maximum soil temperature by layer
+wrt = 0
+0             soiltmin.out      # daily minimum soil temperature by layer
+wrt = 0
+0             stemp_dx.out      # daily soil temperature every few cm (HUGE)!
+wrt = 0
+0             vswc.out          # daily volumetric soilwater content by layer
+wrt = 0
+0             watrbal.out       # daily water balance
+wrt = 0
+0             wfps.out          # daily water filled pore space by layer
+wrt = 0
+0             co2.out           # daily CO2 concentrations by layer
+wrt = 0
+0             wflux.out         # daily water flux through the bottom of soil layers
+wrt = 0
+0             mresp.out         # daily maintenance respiration
+wrt = 0
+0             year_summary.out  # yearly trace gas fluxes
+wrt = 0
+0             livec.out         # daily live carbon
+wrt = 0
+0             deadc.out         # daily dead carbon
+wrt = 0
+0             soilc.out         # daily soil carbon
+wrt = 0
+0             sysc.out          # daily system carbon
+wrt = 0
+0             tgmonth.out       # monthly trace gas fluxes
+wrt = 0
+0             dN2lyr.out        # daily denitrification N2 fluxes by layer
+wrt = 0
+0             dN2Olyr.out       # daily denitrification N2O fluxes by layer
+wrt = 0
+0             gresp.out         # daily growth respiration
+wrt = 0
+0             dels.out          # daily delta 13C/14C values
+wrt = 0
+0             dc_sip.csv        # daily evap, tran, resp, system C, and NPP
+wrt = 0
+0             harvest.csv       # state of the system at time of harvest
+wrt = 0
+0             cflows.out        # daily carbon flows due to decompostion
+wrt = 0
+0             year_cflows.out   # annual accumulators of decomp carbon flows
+wrt = 0
+0             daily.out         # daily ET, defac, soil temp, snow, and therm units
+wrt = 0
+0             nflux.out         # daily trace gases, nitrification, denitrification
+wrt = 0
+0             summary.out       # daily climate, trace gas, and CO resp
+wrt = 0
+Exitting initsw...
+ 0 ::  0  1  2
+ 1 ::  3  4
+ 2 ::  5
+ 3 ::  6
+ 4 ::  7  8
+ 5 ::  9 10
+ 6 :: 11
+ 7 :: 12
+swflag = 0
+sand =  0.05
+silt =  0.70
+clay =  0.25
+bulkd =  0.95
+pH =  5.94
+awilt[0] = 0.119360
+afiel[0] = 0.347000
+awilt[1] = 0.119360
+afiel[1] = 0.347000
+awilt[2] = 0.119360
+afiel[2] = 0.347000
+awilt[3] = 0.154880
+afiel[3] = 0.377000
+awilt[4] = 0.154880
+afiel[4] = 0.377000
+awilt[5] = 0.154880
+afiel[5] = 0.377000
+awilt[6] = 0.115130
+afiel[6] = 0.377000
+awilt[7] = 0.115130
+afiel[7] = 0.377000
+awilt[8] = 0.119360
+afiel[8] = 0.347000
+calciv   : npool_sum = 0.9450000105   minerl_sum = 0.9450000152  npool-minrl = -0.0000000047
+ minerl[1][N] = 0.2450000048
+minerl[2][N] = 0.1000000015
+minerl[3][N] = 0.1000000015
+minerl[4][N] = 0.1000000015
+minerl[5][N] = 0.1000000015
+minerl[6][N] = 0.1000000015
+minerl[7][N] = 0.1000000015
+minerl[8][N] = 0.1000000015
+minerl[9][N] = 0.0000000000
+nitrate[0] = 0.0171500000
+nitrate[1] = 0.0490000000
+nitrate[2] = 0.1788500001
+nitrate[3] = 0.0500000007
+nitrate[4] = 0.0500000007
+nitrate[5] = 0.1000000015
+nitrate[6] = 0.1000000015
+nitrate[7] = 0.0500000007
+nitrate[8] = 0.0500000007
+nitrate[9] = 0.0500000007
+nitrate[10] = 0.0500000007
+nitrate[11] = 0.1000000015
+nitrate[12] = 0.1000000015
+nitrate[13] = 0.0000000000
+ammonium = 0.0000000000
+  
+    Model is running...
+  Using only air temp for PET calc
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Execution success.
+STOP Execution success.
