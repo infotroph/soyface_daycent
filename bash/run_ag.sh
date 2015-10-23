@@ -52,5 +52,3 @@ rm outfiles_tmp.txt
 # Plot output & diagnostics
 lisvars=($(< outvars.txt))
 Rscript ../R/plotlis.R "$dirname"_binmonthly.csv ${lisvars[@]}
-Rscript ../R/cn-vs-targ.R "$dirname"_binmonthly.csv
-Rscript ../R/harvest-vs-nass.R "$dirname"_harvest.csv
