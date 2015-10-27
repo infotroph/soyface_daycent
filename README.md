@@ -1,10 +1,16 @@
 # DayCent parameters for modeling SoyFACE temperature & CO2 manipulations
 
-This repository contains *nearly* all the files you need to recreate the DayCent model results presented in "Elevated CO<sub>2</sub> and temperature increase soil C losses from a soy-maize ecosystem", a manuscript by Christopher K. Black, Sarah C. Davis, Tara W. Hudiburg, Carl J. Bernacchi, and Evan H. DeLucia that will be submitted Real Soon Now to a journal near you.
+This repository contains *nearly* all the files you need to recreate the DayCent model results presented in "Elevated CO<sub>2</sub> and temperature increase soil C losses from a soy-maize ecosystem", by Christopher K. Black, Sarah C. Davis, Tara W. Hudiburg, Carl J. Bernacchi, and Evan H. DeLucia, a manuscript submitted to Global Change Biology on 2015-10-26.
 
-What you *will* find here: DayCent input parameters, output files, most of the validation data, run-management scripts, and plotting code.
+If you're a reviewer for the manuscript: Hi! if something is missing from this repository that you need for your review, please tell us (anonymously is fine). We can probably add it quickly.
 
-What you will *not* find here:
+If you're not a reviewer: Same request! But we may take longer to make the changes, and they will appear in a post-publication branch, not the archived-as-published version.
+
+## What you *will* find here:
+
+DayCent input parameters, output files, most of the validation data, run-management scripts, and plotting code.
+
+## What you will *not* find here:
 
 * DayCent itself. For that, See ["Prerequisites", below](#prerequisites).
 * Chris's full Git history from the model development process. The development version contains three years of blind alleys and expletives and typos, so copying files into this public version was a way of cleaning up after myself. If something seems missing, ask and I'll dig it out of the development repository.
@@ -23,7 +29,7 @@ This simulation consists of a set of three linked models, each initialized with 
 
 ## Details
 
-To run the model, first install all the Prerequisites, then either run `$(make all)` to recreate the full set of simulations, or run individual simulations by calling their corresponding bash script.
+To run the model, first install all the [prerequisites](#prerequisites), then either run `$(make all)` to recreate the full set of simulations, or run individual simulations by calling their corresponding bash script.
 
 Each script takes two arguments: a name for the run and a name for the directory to put it in. As a shortcut, if the directory name is not provided, it is taken from the run name: `$(./bash/run_spinup.sh testspin)` and `$(./bash/run_spinup.sh testspin testspin)` would both produce a directory named `testspin` with a run named `testspin` inside it. Each run script does the following things:
 
