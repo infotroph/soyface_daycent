@@ -21,7 +21,7 @@ plt=(ggplot(data=targets, aes(x=sim_year, y=g_soilC_m2_top20))
 	+ geom_point(aes(color=site), size=4)
 	+ geom_line(data=lis.yr, aes(x=year, y=somtc, fill="DayCENT")))
 png_ggsized(
-	ggobj = mirror.ticks(plt),
+	ggobj = mirror_ticks(plt),
 	filename=paste0(args[1], "_somtc_vs_targ.png"),
 	maxwidth=10.5,
 	maxheight=7,
@@ -34,7 +34,7 @@ plt=(ggplot(data=targets, aes(x=sim_year, y=g_soilN_m2_top20))
 	+ geom_point(aes(color=site), size=4)
 	+ geom_line(data=lis.yr, aes(x=year, y=somte.1., fill="DayCENT")))
 png_ggsized(
-	ggobj = mirror.ticks(plt),
+	ggobj = mirror_ticks(plt),
 	filename=paste0(args[1], "_somtn_vs_targ.png"),
 	maxwidth=10.5,
 	maxheight=7,

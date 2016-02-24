@@ -45,7 +45,7 @@ plt = (ggplot(data=lis, aes(x=year, y=somtc, color=run, lty=run))
 		legend.background=element_blank(),
 		legend.text.align=0))
 png_ggsized(
-	mirror.ticks(plt),
+	mirror_ticks(plt),
 	filename=paste0(argv[1], "_somtc.png"),
 	maxheight=9,
 	maxwidth=6.5,

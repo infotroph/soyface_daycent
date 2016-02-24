@@ -69,7 +69,7 @@ pltcorn = (ggplot(data=cornharv, aes(x=year))
 	+ geom_point(aes(y=cgrain, color="DayCENT"))
 	+ ylab(expression(paste("Maize grain, g C ", m^-2))))
 png_ggsized(
-	ggobj = mirror.ticks(pltcorn),
+	ggobj = mirror_ticks(pltcorn),
 	filename=paste0(args[1], "_corn_vs_nass.png"),
 	maxwidth=10.5,
 	maxheight=7,
@@ -83,7 +83,7 @@ pltcornshoot = (ggplot(data=cornharv, aes(x=year))
 	+ geom_point(aes(y=agcacc, color="DayCENT"))
 	+ ylab(expression(paste("Maize shoot biomass, g C ", m^-2))))
 png_ggsized(
-	ggobj = mirror.ticks(pltcornshoot),
+	ggobj = mirror_ticks(pltcornshoot),
 	filename=paste0(args[1], "_cornshoot_vs_nass.png"),
 	maxwidth=10.5,
 	maxheight=7,
@@ -97,7 +97,7 @@ pltsoy = (ggplot(data=soyharv, aes(x=year))
 	+ geom_point(aes(y=cgrain, color="DayCENT"))
 	+ ylab(expression(paste("Soy grain, g C ", m^-2))))
 png_ggsized(
-	ggobj = mirror.ticks(pltsoy),
+	ggobj = mirror_ticks(pltsoy),
 	filename=paste0(args[1], "_soy_vs_nass.png"),
 	maxwidth=10.5,
 	maxheight=7,
@@ -113,7 +113,7 @@ pltcornlm = (ggplot(data=cornharv, aes(x=NASScgrain, y=cgrain))
 	+ ylab(expression(paste("DayCENT maize grain, g C ", m^-2)))
 	+ geom_text(aes(x=150, y=400, label=lm_eqn(cornlm)), parse=TRUE)) # adjust x,y as needed
 png_ggsized(
-	ggobj = mirror.ticks(pltcornlm),
+	ggobj = mirror_ticks(pltcornlm),
 	filename=paste0(args[1], "_corn_vs_nass_lm.png"),
 	maxwidth=10.5,
 	maxheight=7,
@@ -129,7 +129,7 @@ pltcornshootlm = (ggplot(data=cornharv, aes(x=NASSagcacc, y=agcacc))
 	+ ylab(expression(paste("DayCENT maize shoot biomass, g C ", m^-2)))
 	+ geom_text(aes(x=200, y=700, label=lm_eqn(cornshootlm)), parse=TRUE)) # adjust x,y as needed
 png_ggsized(
-	ggobj = mirror.ticks(pltcornshootlm),
+	ggobj = mirror_ticks(pltcornshootlm),
 	filename=paste0(args[1], "_cornshoot_vs_nass_lm.png"),
 	maxwidth=10.5,
 	maxheight=7,
@@ -145,7 +145,7 @@ pltsoylm = (ggplot(data=soyharv, aes(x=NASScgrain, y=cgrain))
 	+ ylab(expression(paste("DayCENT soy grain, g C ", m^-2)))
 	+ geom_text(aes(x=80, y=250, label=lm_eqn(soylm)), parse=TRUE)) # adjust x,y as needed
 png_ggsized(
-	ggobj = mirror.ticks(pltsoylm),
+	ggobj = mirror_ticks(pltsoylm),
 	filename=paste0(args[1], "_soy_vs_nass_lm.png"),
 	maxwidth=10.5,
 	maxheight=7,
@@ -160,12 +160,12 @@ png(filename=paste(args[1], "_grainvsnass.png", sep=""),
 	units="in",
 	res=300)
 grid.arrange(
-	mirror.ticks(pltcorn
+	mirror_ticks(pltcorn
 		+scale_color_grey()
 		+theme(
 			legend.title=element_blank(),
 			legend.position=c(0.3,0.8))),
-	mirror.ticks(pltcornlm+scale_color_grey()),
-	mirror.ticks(pltsoy+scale_color_grey()+theme(legend.position="none")),
-	mirror.ticks(pltsoylm+scale_color_grey()))
+	mirror_ticks(pltcornlm+scale_color_grey()),
+	mirror_ticks(pltsoy+scale_color_grey()+theme(legend.position="none")),
+	mirror_ticks(pltsoylm+scale_color_grey()))
 dev.off()

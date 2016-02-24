@@ -139,7 +139,7 @@ pltl=(ggplot(data=dcresp_long,
 		y=expression(paste("Soil ", CO[2],  " efflux, µmol ", m^{-2}, " ", sec^{-1}))))
 
 png_ggsized(
-	mirror.ticks(pltl),
+	mirror_ticks(pltl),
 	filename=paste(argv[1], "_resp_vs_dc.png", sep=""),
 	maxwidth=6.5,
 	maxheight=9,

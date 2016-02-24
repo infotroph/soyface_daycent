@@ -35,7 +35,7 @@ for(arg in argv[-1]){
 		+geom_line(aes(color=factor(run)))
 		+labs(color="Run"))
 	png_ggsized(
-		ggobj = mirror.ticks(plt),
+		ggobj = mirror_ticks(plt),
 		filename=paste0(argv[1], "_", arg,".png"),
 		maxwidth=10.5,
 		maxheight=7,
