@@ -42,6 +42,9 @@ out_face/out_face_abvC-seasonal.png: R/plotlivec.R out_face/out_face_livec.csv
 out_face/out_face_binmonthly.csv_somtc.png: R/plotlis_somtc.R out_face/out_face_binmonthly.csv
 	cd out_face && Rscript ../R/plotlis_somtc.R out_face_binmonthly.csv
 
+out_face/out_face_resp_vs_dc.png: R/plotresp.R validation_data/soyface-2009to2011-soilresp.csv out_face/out_face_mresp.csv out_face/out_face_gresp.csv out_face/out_face_sysc.csv
+	cd out_face && Rscript ../R/plotresp.R "out_face"
+
 out_ag/out_ag_binmonthly.csv_somtc_vs_targ.png out_ag/out_ag_binmonthly.csv_somtn_vs_targ.png: R/cn-vs-targ.R out_ag/out_ag_binmonthly.csv
 	cd out_ag && Rscript ../R/cn-vs-targ.R out_ag_binmonthly.csv
 
@@ -64,6 +67,7 @@ agplots: out_ag/out_ag_harvest.csv_grainvsnass.png \
 face: out_face/out_facectrl.bin
 faceplots: \
 	out_face/out_face_abvC-seasonal.png \
-	out_face/out_face_binmonthly.csv_somtc.png
+	out_face/out_face_binmonthly.csv_somtc.png \
+	out_face/out_face_resp_vs_dc.png
 plots: agplots faceplots
 
