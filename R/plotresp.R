@@ -1,8 +1,6 @@
 #!/usr/bin/env Rscript
 
 library(ggplot2)
-library(grid)
-library(gridExtra)
 library(DeLuciatoR) # https://github.com/infotroph/DeLuciatoR
 library(ggplotTicks) # https://github.com/infotroph/ggplotTicks
 theme_set(theme_ggEHD(16))
@@ -44,6 +42,11 @@ mresp = read.csv(paste0(argv[1], "_mresp.csv"), check.names=FALSE)
 gresp = read.csv(paste0(argv[1], "_gresp.csv"), check.names=FALSE)
 sysc = read.csv(paste0(argv[1], "_sysc.csv"), check.names=FALSE)
 
+rows_wanted = (mresp$time >= 2009 & mresp$time < 2012)
+mresp = mresp[rows_wanted,]
+gresp = gresp[rows_wanted,]
+sysc = sysc[rows_wanted,]
+
 scaleflux = function(x){
 	return(x
 	/12 # g C/mol
@@ -81,8 +84,6 @@ dcresp$CO2 = factor(ifelse(
 # to get matching Treatment names between simulated and observed datasets
 # without worrying about factor level ordering.
 dcresp$Treatment = paste0(dcresp$Heat, dcresp$CO2)
-
-dcresp = dcresp[dcresp$time >= 2009 & dcresp$time < 2012,]
 
 dcresp_aut = dcresp
 dcresp_aut$Part = "Raut"
