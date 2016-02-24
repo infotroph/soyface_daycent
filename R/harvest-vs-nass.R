@@ -10,7 +10,7 @@ theme_set(theme_ggEHD(16))
 args = commandArgs(trailingOnly = TRUE)
 
 corntargets = read.csv("../validation_data/NASS/cornyield-champcty.csv")
-soytargets = read.csv("../validation_data/NASS//soyyield-champcty.csv")
+soytargets = read.csv("../validation_data/NASS/soyyield-champcty.csv")
 
 corntargets$gCm2 =
 	(corntargets$Value
