@@ -42,10 +42,10 @@ out_face/out_face_abvC-seasonal.png: R/plotlivec.R out_face/out_face_livec.csv
 out_face/out_face_binmonthly.csv_somtc.png: R/plotlis_somtc.R out_face/out_face_binmonthly.csv
 	cd out_face && Rscript ../R/plotlis_somtc.R out_face_binmonthly.csv
 
-out_ag/out_ag_harvest.csv_grainvsnass.png: R/cn-vs-targ.R out_ag/out_ag_binmonthly.csv
+out_ag/out_ag_binmonthly.csv_somtc_vs_targ.png out_ag/out_ag_binmonthly.csv_somtn_vs_targ.png: R/cn-vs-targ.R out_ag/out_ag_binmonthly.csv
 	cd out_ag && Rscript ../R/cn-vs-targ.R out_ag_binmonthly.csv
 
-out_ag/out_ag/out_ag_binmonthly.csv_somtc_vs_targ.png out_ag/out_ag_binmonthly.csv_somtn_vs_targ.png: R/harvest-vs-nass.R out_ag/out_ag_harvest.csv
+out_ag/out_ag_harvest.csv_grainvsnass.png: R/harvest-vs-nass.R out_ag/out_ag_harvest.csv
 	cd out_ag && Rscript ../R/harvest-vs-nass.R out_ag_harvest.csv
 
 .phony: all spin spin-many ag face plots agplots faceplots
