@@ -169,3 +169,10 @@ grid.arrange(
 	mirror_ticks(pltsoy+scale_color_grey()+theme(legend.position="none")),
 	mirror_ticks(pltsoylm+scale_color_grey()))
 dev.off()
+
+# Root-mean-square error; Smaller is better, but scale-dependent! 
+combharv = rbind(soyharv, cornharv[, -grep("NASSagcacc", names(cornharv))])
+combharv = combharv[!is.na(combharv$NASScgrain),]
+rmse = with(combharv, sqrt(mean((cgrain - NASScgrain)^2)))
+print(paste("RMSE of grain yield for all years:", round(rmse, 2)))
+print(paste("RMSE/mean:", round(rmse/mean(combharv$NASScgrain), 2)))
