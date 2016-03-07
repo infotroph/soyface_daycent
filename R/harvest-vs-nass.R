@@ -68,13 +68,13 @@ pltcorn = (ggplot(data=cornharv, aes(x=year))
 	+ geom_line(aes(y=cgrain, color="DayCENT"))
 	+ geom_point(aes(y=cgrain, color="DayCENT"))
 	+ ylab(expression(paste("Maize grain, g C ", m^-2))))
-png_ggsized(
-	ggobj = mirror_ticks(pltcorn),
+ggsave_fitmax(
+	plot = mirror_ticks(pltcorn),
 	filename=paste0(args[1], "_corn_vs_nass.png"),
 	maxwidth=10.5,
 	maxheight=7,
 	units="in",
-	res=300)
+	dpi=300)
 
 pltcornshoot = (ggplot(data=cornharv, aes(x=year))
 	+ geom_line(data=corntargets, aes(x=Year, y=estshootC, color="NASS"))
@@ -82,13 +82,13 @@ pltcornshoot = (ggplot(data=cornharv, aes(x=year))
 	+ geom_line(aes(y=agcacc, color="DayCENT"))
 	+ geom_point(aes(y=agcacc, color="DayCENT"))
 	+ ylab(expression(paste("Maize shoot biomass, g C ", m^-2))))
-png_ggsized(
-	ggobj = mirror_ticks(pltcornshoot),
+ggsave_fitmax(
+	plot = mirror_ticks(pltcornshoot),
 	filename=paste0(args[1], "_cornshoot_vs_nass.png"),
 	maxwidth=10.5,
 	maxheight=7,
 	units="in",
-	res=300)
+	dpi=300)
 
 pltsoy = (ggplot(data=soyharv, aes(x=year))
 	+ geom_line(data=soytargets, aes(x=Year, y=gCm2, color="NASS"))
@@ -96,13 +96,13 @@ pltsoy = (ggplot(data=soyharv, aes(x=year))
 	+ geom_line(aes(y=cgrain, color="DayCENT"))
 	+ geom_point(aes(y=cgrain, color="DayCENT"))
 	+ ylab(expression(paste("Soy grain, g C ", m^-2))))
-png_ggsized(
-	ggobj = mirror_ticks(pltsoy),
+ggsave_fitmax(
+	plot = mirror_ticks(pltsoy),
 	filename=paste0(args[1], "_soy_vs_nass.png"),
 	maxwidth=10.5,
 	maxheight=7,
 	units="in",
-	res=300)
+	dpi=300)
 
 cornlm = lm(cgrain ~ NASScgrain, cornharv)
 pltcornlm = (ggplot(data=cornharv, aes(x=NASScgrain, y=cgrain))
@@ -112,13 +112,13 @@ pltcornlm = (ggplot(data=cornharv, aes(x=NASScgrain, y=cgrain))
 	+ xlab(expression(paste("NASS maize grain, g C ", m^-2)))
 	+ ylab(expression(paste("DayCENT maize grain, g C ", m^-2)))
 	+ geom_text(aes(x=150, y=400, label=lm_eqn(cornlm)), parse=TRUE)) # adjust x,y as needed
-png_ggsized(
-	ggobj = mirror_ticks(pltcornlm),
+ggsave_fitmax(
+	plot = mirror_ticks(pltcornlm),
 	filename=paste0(args[1], "_corn_vs_nass_lm.png"),
 	maxwidth=10.5,
 	maxheight=7,
 	units="in",
-	res=300)
+	dpi=300)
 
 cornshootlm = lm(agcacc ~ NASSagcacc, cornharv)
 pltcornshootlm = (ggplot(data=cornharv, aes(x=NASSagcacc, y=agcacc))
@@ -128,13 +128,13 @@ pltcornshootlm = (ggplot(data=cornharv, aes(x=NASSagcacc, y=agcacc))
 	+ xlab(expression(paste("NASS maize shoot biomass (est from grain), g C ", m^-2)))
 	+ ylab(expression(paste("DayCENT maize shoot biomass, g C ", m^-2)))
 	+ geom_text(aes(x=200, y=700, label=lm_eqn(cornshootlm)), parse=TRUE)) # adjust x,y as needed
-png_ggsized(
-	ggobj = mirror_ticks(pltcornshootlm),
+ggsave_fitmax(
+	plot = mirror_ticks(pltcornshootlm),
 	filename=paste0(args[1], "_cornshoot_vs_nass_lm.png"),
 	maxwidth=10.5,
 	maxheight=7,
 	units="in",
-	res=300)
+	dpi=300)
 
 soylm = lm(cgrain ~ NASScgrain, soyharv)
 pltsoylm = (ggplot(data=soyharv, aes(x=NASScgrain, y=cgrain))
@@ -144,22 +144,15 @@ pltsoylm = (ggplot(data=soyharv, aes(x=NASScgrain, y=cgrain))
 	+ xlab(expression(paste("NASS soy grain, g C ", m^-2)))
 	+ ylab(expression(paste("DayCENT soy grain, g C ", m^-2)))
 	+ geom_text(aes(x=80, y=250, label=lm_eqn(soylm)), parse=TRUE)) # adjust x,y as needed
-png_ggsized(
-	ggobj = mirror_ticks(pltsoylm),
+ggsave_fitmax(
+	plot = mirror_ticks(pltsoylm),
 	filename=paste0(args[1], "_soy_vs_nass_lm.png"),
 	maxwidth=10.5,
 	maxheight=7,
 	units="in",
-	res=300)
+	dpi=300)
 
-# Can't use png_ggsized here: It expects a ggplot or gtable object,
-# grid.arrange produces a grid object.
-png(filename=paste(args[1], "_grainvsnass.png", sep=""),
-	width=11,
-	height=8.5,
-	units="in",
-	res=300)
-grid.arrange(
+plts_4 = grid.arrange(
 	mirror_ticks(pltcorn
 		+scale_color_grey()
 		+theme(
@@ -168,7 +161,15 @@ grid.arrange(
 	mirror_ticks(pltcornlm+scale_color_grey()),
 	mirror_ticks(pltsoy+scale_color_grey()+theme(legend.position="none")),
 	mirror_ticks(pltsoylm+scale_color_grey()))
-dev.off()
+# note use of ggsave here -- ggsave_fitmax gets confused by grid.arrange output
+# and produces a square image with excess space between rows of panels.
+ggsave(
+	plot = plts_4,
+	filename=paste0(args[1], "_grainvsnass.png"),
+	width=11,
+	height=8.5,
+	units="in",
+	dpi=300)
 
 # Root-mean-square error; Smaller is better, but scale-dependent! 
 combharv = rbind(soyharv, cornharv[, -grep("NASSagcacc", names(cornharv))])
