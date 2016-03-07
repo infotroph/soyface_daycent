@@ -50,8 +50,10 @@ soyharv = harv[floor(harv$crpval)==60,]
 # Note that for value-over-time lineplots below I use the full NASS set rather than this.
 cornharv$NASScgrain = corntargets$gCm2[match(cornharv$year, corntargets$Year)]
 cornharv$NASSagcacc = corntargets$estshootC[match(cornharv$year, corntargets$Year)]
+cornharv = cornharv[!is.na(cornharv$NASScgrain),]
 
 soyharv$NASScgrain = soytargets$gCm2[match(soyharv$year, soytargets$Year)]
+soyharv = soyharv[!is.na(soyharv$NASScgrain),]
 
 # add equation and R2 to regression plots.
 lm_eqn = function(mod){
@@ -161,8 +163,8 @@ plts_4 = grid.arrange(
 	mirror_ticks(pltcornlm+scale_color_grey()),
 	mirror_ticks(pltsoy+scale_color_grey()+theme(legend.position="none")),
 	mirror_ticks(pltsoylm+scale_color_grey()))
-# note use of ggsave here -- ggsave_fitmax gets confused by grid.arrange output
-# and produces a square image with excess space between rows of panels.
+# note use of plain ggsave here: ggsave_fitmax gets confused by grid.arrange 
+# output and produces a square image with excess space between rows of panels.
 ggsave(
 	plot = plts_4,
 	filename=paste0(args[1], "_grainvsnass.png"),
@@ -173,7 +175,6 @@ ggsave(
 
 # Root-mean-square error; Smaller is better, but scale-dependent! 
 combharv = rbind(soyharv, cornharv[, -grep("NASSagcacc", names(cornharv))])
-combharv = combharv[!is.na(combharv$NASScgrain),]
 rmse = with(combharv, sqrt(mean((cgrain - NASScgrain)^2)))
 print(paste("RMSE of grain yield for all years:", round(rmse, 2)))
 print(paste("RMSE/mean:", round(rmse/mean(combharv$NASScgrain), 2)))
