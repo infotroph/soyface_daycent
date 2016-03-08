@@ -46,7 +46,7 @@ plt = (ggplot(data=lis, aes(x=year, y=somtc, color=run, lty=run))
 		legend.text.align=0))
 ggsave_fitmax(
 	plot=mirror_ticks(plt),
-	filename=paste0(argv[1], "_somtc.png"),
+	filename=paste0(argv[1], "_somtc_fancy.png"),
 	maxheight=9,
 	maxwidth=6.5,
 	units="in",
