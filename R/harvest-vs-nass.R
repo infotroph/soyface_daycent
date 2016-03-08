@@ -173,8 +173,47 @@ ggsave(
 	units="in",
 	dpi=300)
 
-# Root-mean-square error; Smaller is better, but scale-dependent! 
+# Observed-vs-predicted for the whole timeseries (both crops mixed)
+soyharv$crop = "Soybean"
+cornharv$crop = "Maize"
 combharv = rbind(soyharv, cornharv[, -grep("NASSagcacc", names(cornharv))])
 rmse = with(combharv, sqrt(mean((cgrain - NASScgrain)^2)))
 print(paste("RMSE of grain yield for all years:", round(rmse, 2)))
 print(paste("RMSE/mean:", round(rmse/mean(combharv$NASScgrain), 2)))
+
+comblm = lm(cgrain ~ NASScgrain, combharv)
+combplt = mirror_ticks(
+	ggplot(combharv, aes(NASScgrain, cgrain, pch=crop))
+	+ geom_point(size=2)
+	+ geom_abline(intercept=0, slope=1, lty="dashed")
+	+ geom_smooth(method="lm", aes(group=1))
+	+ xlab(expression(paste("Observed grain yield (NASS), g C ", m^-2)))
+	+ ylab(expression(paste("Modeled grain yield (DayCENT), g C ", m^-2)))
+	+ scale_color_grey()
+	+ geom_text(
+		aes(x=min(combharv$NASScgrain), y=400, label=lm_eqn(comblm)),
+		parse=TRUE,
+		size=1.5 * .pt,
+		hjust="inward")
+	+ geom_text(
+		aes(
+			x=min(combharv$NASScgrain),
+			y=375,
+			label=paste0(
+				"RMSE ",
+				round(rmse, 2),
+				", RMSE/mean ",
+				round(rmse/mean(combharv$NASScgrain), 2))),
+		parse=FALSE,
+		size=1.5 * .pt,
+		hjust="inward")
+	+ theme(
+		legend.title=element_blank(),
+		legend.key=element_blank(),
+		legend.position=c(0.1, 0.9)))
+ggsave_fitmax(
+	filename=paste0(args[1], "_grainvsnass_combsoymaize.png"),
+	plot=combplt,
+	maxwidth=10.5,
+	maxheight=7)
+
