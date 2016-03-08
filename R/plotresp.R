@@ -149,13 +149,13 @@ pltl=(ggplot(data=dcresp_long,
 	+labs(
 		y=expression(paste("Soil ", CO[2],  " efflux, µmol ", m^{-2}, " ", sec^{-1}))))
 
-png_ggsized(
-	mirror_ticks(pltl),
+ggsave_fitmax(
+	plot=mirror_ticks(pltl),
 	filename=paste(argv[1], "_resp_vs_dc.png", sep=""),
 	maxwidth=6.5,
 	maxheight=9,
 	units="in",
-	res=300)
+	dpi=300)
 
 
 
@@ -203,10 +203,10 @@ plt_lm = (ggplot(resp_comb,
 		show.legend=FALSE,
 		size=theme_ggEHD(8)$text$size / .pt))
 
-png_ggsized(
-	mirror_ticks(plt_lm),
+ggsave_fitmax(
+	plot=mirror_ticks(plt_lm),
 	filename=paste(argv[1], "_resp_vs_dc_lm.png", sep=""),
 	maxwidth=6.5,
 	maxheight=9,
 	units="in",
-	res=300)
+	dpi=300)
