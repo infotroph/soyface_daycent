@@ -3,7 +3,6 @@
 library(ggplot2)
 library(DeLuciatoR) # https://github.com/infotroph/DeLuciatoR
 library(ggplotTicks) # https://github.com/infotroph/ggplotTicks
-theme_set(theme_ggEHD(16))
 
 lm_eqn = function(mod){
 	eq <- substitute(italic(y) == a + b %.% italic(x)*","~~italic(R)^2~"="~r2,
@@ -113,23 +112,34 @@ scale_labels = c(
 
 pltl=(ggplot(data=dcresp_long,
 		aes(Date, Estimate, color=Treatment, shape=Treatment, lty=Treatment))
-	+facet_grid(Part.expr~., labeller=label_parsed)
+	+facet_grid(
+		Part.expr~.,
+		labeller=label_parsed,
+		scales="free_y")
 	+geom_line()
-	+geom_pointrange(data=resp,
+	+geom_point(
+		data=resp,
+		aes(x=Date, y=Estimate))
+	+geom_errorbar(
+		data=resp,
 		aes(x=Date, y=Estimate, ymin=Estimate-Std.err, ymax=Estimate+Std.err),
-		alpha=0.95)
+		alpha=0.95,
+		lty=1,
+		show.legend=FALSE)
+	+xlim(range(resp$Date))
 	+scale_color_manual(
 		labels=scale_labels,
-		values=c(cAmbient="black", hAmbient="black", cElevated="grey", hElevated="grey"))
+		values=c(cAmbient="grey", hAmbient="black", cElevated="grey", hElevated="black"))
 	+scale_shape_manual(
 		labels=scale_labels,
-		values=c(cAmbient=1, hAmbient=2, cElevated=16, hElevated=17))
+		values=c(cAmbient=1, hAmbient=1, cElevated=17, hElevated=17))
 	+scale_linetype_manual(
 		labels=scale_labels,
-		values=c(cAmbient=1, hAmbient=2, cElevated=1, hElevated=2))
+		values=c(cAmbient=1, hAmbient=1, cElevated=2, hElevated=2))
+	+theme_ggEHD(16)
 	+theme(
 		aspect.ratio=0.5,
-		legend.position=c(0.5,0.94),
+		legend.position=c(0.5,0.72),
 		legend.title=element_blank(),
 		legend.key=element_blank(),
 		legend.background=element_blank(),
