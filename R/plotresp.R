@@ -156,3 +156,57 @@ png_ggsized(
 	maxheight=9,
 	units="in",
 	res=300)
+
+
+
+resp_comb = merge(
+	x=resp,
+	y=dcresp_long,
+	by=c("Part", "Heat", "CO2", "Date", "Treatment", "Part.expr"),
+	all.x=TRUE,
+	all.y=FALSE)
+
+
+lmRaut = lm(Estimate.y ~ Estimate.x, resp_comb[resp_comb$Part=="Raut",])
+lmRhet = lm(Estimate.y ~ Estimate.x, resp_comb[resp_comb$Part=="Rhet",])
+lmRtot = lm(Estimate.y ~ Estimate.x, resp_comb[resp_comb$Part=="Rtot",])
+
+lm_txt = data.frame(
+	Treatment="cAmbient",
+	Estimate.x=0,
+	Estimate.y=max(resp_comb$Estimate.y),
+	Part.expr=c("R[het]", "R[aut]", "R[tot]"),
+	eqn=c(lm_eqn(lmRaut), lm_eqn(lmRhet), lm_eqn(lmRtot)))
+
+plt_lm = (ggplot(resp_comb,
+			aes(x=Estimate.x, y=Estimate.y, color=Treatment))
+	+ theme_ggEHD(8)
+	+ geom_point()
+	+ geom_smooth(method="lm")
+	+ facet_grid(
+		Part.expr~.,
+		labeller=label_parsed)
+	+ coord_equal()
+	+ theme(aspect.ratio=1)
+	+ geom_abline(intercept=0, slope=1)
+	+ labs(
+		y=expression(paste(
+			"DayCent Soil ", CO[2],  " efflux, µmol ",
+			m^{-2}, " ", sec^{-1})),
+		x=expression(paste(
+			"Measured Soil ", CO[2],  " efflux, µmol ",
+			m^{-2}, " ", sec^{-1})))
+	+ geom_text(
+		data=lm_txt,
+		mapping=aes(label=eqn),
+		parse=TRUE,
+		show.legend=FALSE,
+		size=theme_ggEHD(8)$text$size / .pt))
+
+png_ggsized(
+	mirror_ticks(plt_lm),
+	filename=paste(argv[1], "_resp_vs_dc_lm.png", sep=""),
+	maxwidth=6.5,
+	maxheight=9,
+	units="in",
+	res=300)
