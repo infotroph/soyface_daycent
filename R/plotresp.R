@@ -142,6 +142,8 @@ pltl=(ggplot(data=dcresp_long,
 		legend.position=c(0.5,0.72),
 		legend.title=element_blank(),
 		legend.key=element_blank(),
+		legend.key.width=unit(1.5, "lines"),
+		legend.key.height=unit(1, "lines"),
 		legend.background=element_blank(),
 		legend.text.align=0,
 		strip.background=element_blank())
