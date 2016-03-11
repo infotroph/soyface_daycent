@@ -233,8 +233,6 @@ ammonium = 0.0000000000
   
     Model is running...
   Using only air temp for PET calc
- Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
- Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
  Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
  Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
  Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
@@ -329,5 +327,7 @@ ammonium = 0.0000000000
  Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
  Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
  Warning:  invalid weather data, day            7  year         1935 , tmax < tmin
+ Warning:  invalid weather data, day          349  year         2000 , tmax < tmin
+ Warning:  invalid weather data, day          356  year         2000 , tmax < tmin
  Execution success.
 STOP Execution success.
