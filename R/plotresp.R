@@ -15,21 +15,20 @@ lm_eqn = function(mod){
 resp = read.csv(
 	"../validation_data/soyface-2009to2011-soilresp.csv",
 	colClasses=c(
-		Effect="character",
+		Season="factor",
+		Component="factor",
 		Heat="factor",
 		CO2="factor",
-		Day="character",
-		Estimate="numeric",
-		Std.err="numeric",
-		DF="numeric",
-		t.val="numeric",
-		Pr.t="character",
-		Date="Date",
-		Part="factor",
-		Season="factor"))
-
+		Day="Date",
+		lsmean="numeric",
+		SE="numeric",
+		df="numeric",
+		lower.CL="numeric",
+		upper.CL="numeric"
+		))
 
 resp$Treatment = paste0(resp$Heat, resp$CO2)
+resp$Date = resp$Day
 
 # If argv exists already, we're being sourced from inside another script.
 # If not, we're running standalone and taking arguments from the command line.
@@ -85,24 +84,24 @@ dcresp$CO2 = factor(ifelse(
 dcresp$Treatment = paste0(dcresp$Heat, dcresp$CO2)
 
 dcresp_aut = dcresp
-dcresp_aut$Part = "Raut"
-dcresp_aut$Estimate = dcresp$mroot + dcresp$groot
+dcresp_aut$Component = "Raut"
+dcresp_aut$lsmean = dcresp$mroot + dcresp$groot
 
 dcresp_het = dcresp
-dcresp_het$Part = "Rhet"
-dcresp_het$Estimate = dcresp$hetresp
+dcresp_het$Component = "Rhet"
+dcresp_het$lsmean = dcresp$hetresp
 
 dcresp_tot = dcresp
-dcresp_tot$Part = "Rtot"
-dcresp_tot$Estimate = dcresp$hetresp + dcresp$mroot + dcresp$groot
+dcresp_tot$Component = "Rtot"
+dcresp_tot$lsmean = dcresp$hetresp + dcresp$mroot + dcresp$groot
 
 dcresp_long=rbind(dcresp_aut, dcresp_het,dcresp_tot)
 
-partexpr = data.frame(
-	Part.txt=c("Rhet", "Raut", "Rtot"),
-	Part.expr=c("R[het]","R[aut]","R[tot]"))
-dcresp_long = merge(dcresp_long, partexpr, by.x="Part", by.y="Part.txt")
-resp = merge(resp, partexpr, by.x="Part", by.y="Part.txt")
+componentexpr = data.frame(
+	Component.txt=c("Rhet", "Raut", "Rtot"),
+	Component.expr=c("R[het]","R[aut]","R[tot]"))
+dcresp_long = merge(dcresp_long, componentexpr, by.x="Component", by.y="Component.txt")
+resp = merge(resp, componentexpr, by.x="Component", by.y="Component.txt")
 
 scale_labels = c(
 	cAmbient="Control",
@@ -111,18 +110,18 @@ scale_labels = c(
 	hElevated=expression(paste("Heat+", CO[2])))
 
 pltl=(ggplot(data=dcresp_long,
-		aes(Date, Estimate, color=Treatment, shape=Treatment, lty=Treatment))
+		aes(Date, lsmean, color=Treatment, shape=Treatment, lty=Treatment))
 	+facet_grid(
-		Part.expr~.,
+		Component.expr~.,
 		labeller=label_parsed,
 		scales="free_y")
 	+geom_line()
 	+geom_point(
 		data=resp,
-		aes(x=Date, y=Estimate))
+		aes(x=Date, y=lsmean))
 	+geom_errorbar(
 		data=resp,
-		aes(x=Date, y=Estimate, ymin=Estimate-Std.err, ymax=Estimate+Std.err),
+		aes(x=Date, y=lsmean, ymin=lsmean-SE, ymax=lsmean+SE),
 		alpha=0.95,
 		lty=1,
 		show.legend=FALSE)
@@ -164,29 +163,29 @@ ggsave_fitmax(
 resp_comb = merge(
 	x=resp,
 	y=dcresp_long,
-	by=c("Part", "Heat", "CO2", "Date", "Treatment", "Part.expr"),
+	by=c("Component", "Heat", "CO2", "Date", "Treatment", "Component.expr"),
 	all.x=TRUE,
 	all.y=FALSE)
 
 
-lmRaut = lm(Estimate.y ~ Estimate.x, resp_comb[resp_comb$Part=="Raut",])
-lmRhet = lm(Estimate.y ~ Estimate.x, resp_comb[resp_comb$Part=="Rhet",])
-lmRtot = lm(Estimate.y ~ Estimate.x, resp_comb[resp_comb$Part=="Rtot",])
+lmRaut = lm(lsmean.y ~ lsmean.x, resp_comb[resp_comb$Component=="Raut",])
+lmRhet = lm(lsmean.y ~ lsmean.x, resp_comb[resp_comb$Component=="Rhet",])
+lmRtot = lm(lsmean.y ~ lsmean.x, resp_comb[resp_comb$Component=="Rtot",])
 
 lm_txt = data.frame(
 	Treatment="cAmbient",
-	Estimate.x=0,
-	Estimate.y=max(resp_comb$Estimate.y),
-	Part.expr=c("R[het]", "R[aut]", "R[tot]"),
+	lsmean.x=0,
+	lsmean.y=max(resp_comb$lsmean.y),
+	Component.expr=c("R[het]", "R[aut]", "R[tot]"),
 	eqn=c(lm_eqn(lmRaut), lm_eqn(lmRhet), lm_eqn(lmRtot)))
 
 plt_lm = (ggplot(resp_comb,
-			aes(x=Estimate.x, y=Estimate.y, color=Treatment))
+			aes(x=lsmean.x, y=lsmean.y, color=Treatment))
 	+ theme_ggEHD(8)
 	+ geom_point()
 	+ geom_smooth(method="lm")
 	+ facet_grid(
-		Part.expr~.,
+		Component.expr~.,
 		labeller=label_parsed)
 	+ coord_equal()
 	+ theme(aspect.ratio=1)
