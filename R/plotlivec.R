@@ -57,13 +57,13 @@ plt=(ggplot(
 		legend.background=element_blank(),
 		legend.text.align=0,
 		strip.background=element_blank()))
-png_ggsized(
-	mirror_ticks(plt),
+ggsave_fitmax(
 	filename=paste(argv[1], "_abvC-seasonal.png", sep=""),
+	plot=mirror_ticks(plt),
 	maxwidth=10.5,
 	maxheight=7,
 	units="in",
-	res=300)
+	dpi=300)
 
 # library(dplyr)
 
