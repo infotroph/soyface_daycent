@@ -63,7 +63,8 @@ spin-many: spin
 ag: out_ag/ag1.bin
 agplots: out_ag/out_ag_harvest.csv_grainvsnass.png \
 	out_ag/out_ag_binmonthly.csv_somtc_vs_targ.png \
-	out_ag/out_ag_binmonthly.csv_somtn_vs_targ.png
+	out_ag/out_ag_binmonthly.csv_somtn_vs_targ.png \
+	out_ag/out_ag_binmonthly.csv_somtcn_vs_targ.png
 face: out_face/out_facectrl.bin
 faceplots: \
 	out_face/out_face_abvC-seasonal.png \

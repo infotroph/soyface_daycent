@@ -109,6 +109,13 @@ scale_labels = c(
 	cElevated=expression(CO[2]),
 	hElevated=expression(paste("Heat+", CO[2])))
 
+panel_txt = data.frame(
+	Date=max(resp$Date),
+	lsmean=tapply(resp$lsmean+resp$SE, resp$Component, max)[c("Rhet", "Raut", "Rtot")],
+	Treatment="hAmbient",
+	Component.expr=c("R[het]", "R[aut]", "R[tot]"),
+	label=c("(b)", "(a)", "(c)")) # beware! manual sorting!
+
 pltl=(ggplot(data=dcresp_long,
 		aes(Date, lsmean, color=Treatment, shape=Treatment, lty=Treatment))
 	+facet_grid(
@@ -124,6 +131,14 @@ pltl=(ggplot(data=dcresp_long,
 		aes(x=Date, y=lsmean, ymin=lsmean-SE, ymax=lsmean+SE),
 		alpha=0.95,
 		lty=1,
+		show.legend=FALSE)
+	+geom_text(
+		data=panel_txt,
+		aes(label=label),
+		size=6,
+		fontface="bold",
+		nudge_x=-20,
+		nudge_y=-0.5,
 		show.legend=FALSE)
 	+xlim(range(resp$Date))
 	+scale_color_manual(

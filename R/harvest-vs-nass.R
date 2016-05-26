@@ -2,7 +2,7 @@
 
 library(ggplot2)
 library(grid)
-library(gridExtra)
+library(cowplot)
 library(DeLuciatoR) # https://github.com/infotroph/DeLuciatoR
 library(ggplotTicks) # https://github.com/infotroph/ggplotTicks
 theme_set(theme_ggEHD(16))
@@ -154,7 +154,7 @@ ggsave_fitmax(
 	units="in",
 	dpi=300)
 
-plts_4 = grid.arrange(
+plts_4 = plot_grid(
 	mirror_ticks(pltcorn
 		+scale_color_grey()
 		+theme(
@@ -162,7 +162,11 @@ plts_4 = grid.arrange(
 			legend.position=c(0.3,0.8))),
 	mirror_ticks(pltcornlm+scale_color_grey()),
 	mirror_ticks(pltsoy+scale_color_grey()+theme(legend.position="none")),
-	mirror_ticks(pltsoylm+scale_color_grey()))
+	mirror_ticks(pltsoylm+scale_color_grey()),
+	labels=paste0("(", letters, ")"),
+	hjust=-3.25,
+	vjust=2.25,
+	label_size=24)
 # note use of plain ggsave here: ggsave_fitmax gets confused by grid.arrange 
 # output and produces a square image with excess space between rows of panels.
 ggsave(
@@ -215,5 +219,6 @@ ggsave_fitmax(
 	filename=paste0(args[1], "_grainvsnass_combsoymaize.png"),
 	plot=combplt,
 	maxwidth=10.5,
-	maxheight=7)
+	maxheight=7,
+	dpi=300)
 

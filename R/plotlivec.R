@@ -37,12 +37,26 @@ livec = livec[livec$Year %in% c(2001, 2003, 2005, 2007),,drop=FALSE]
 #remove T-FACE runs before heat turned on (/should/ be identical to ctrl and co2)
 livec = livec[-which(livec$time < 2009 & livec$run %in% c("heat", "heatco2")),]
 
+panel_labels = data.frame(
+	Julian.Day=30,
+	shoot.C=max(sfbiomass$shoot.C, na.rm=TRUE),
+	CO2="ctrl",
+	label=c("(a)", "(b)", "(c)", "(d)"),
+	Year=c(2001, 2003, 2005, 2007))
+
 # aboveground biomass through the growing season.
 plt=(ggplot(
 		sfbiomass, 
 		aes(Julian.Day, shoot.C, color=CO2))
 	+geom_point()
 	+geom_line(data=livec, aes(dayofyr, aglivc+stdedc, color=run))
+	+geom_text(
+		data=panel_labels,
+		aes(label=label),
+		fontface="bold",
+		size=7,
+		nudge_y=-30,
+		show.legend=FALSE)
 	+facet_wrap(~Year)
 	+ylab(expression(paste("Shoot biomass, g C ", m^-2)))
 	+xlab("Day of year")
