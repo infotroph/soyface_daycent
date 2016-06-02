@@ -56,6 +56,6 @@ Once you have binaries, make sure both `DayCent` and `Daycent_list100` are insta
 
 The model-running scripts are written in `bash` and assume that `bash`, `sed`, `tee`, and `Rscript` are available. If you have a standard Unix toolchain and a working installation of R, these assumptions are probably true. If you use Windows, Cygwin will probably work, but I haven't tried.
 
-To draw diagnotic plots, you will need R and the R packages `ggplot2`, `gridExtra`, [`ggplotTicks`](https://github.com/infotroph/ggplotTicks) and [`DeLuciatoR`](https://github.com/infotroph/DeLuciatoR). The last two are not available from CRAN; follow the links for installation instructions.
+To draw diagnotic plots, you will need R and the R packages `ggplot2`, `cowplot`, [`ggplotTicks`](https://github.com/infotroph/ggplotTicks) and [`DeLuciatoR`](https://github.com/infotroph/DeLuciatoR). The last two are not available from CRAN; follow the links for installation instructions.
 
 If you find another prerequisite not listed here, please tell me.
