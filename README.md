@@ -1,10 +1,8 @@
 # DayCent parameters for modeling SoyFACE temperature & CO2 manipulations
 
-This repository contains *nearly* all the files you need to recreate the DayCent model results presented in "Elevated CO<sub>2</sub> and temperature increase soil C losses from a soy-maize ecosystem", by Christopher K. Black, Sarah C. Davis, Tara W. Hudiburg, Carl J. Bernacchi, and Evan H. DeLucia, a manuscript submitted to Global Change Biology on 2015-10-26.
+This repository contains *nearly* all the files you need to recreate the DayCent model results presented in "[Elevated CO<sub>2</sub> and temperature increase soil C losses from a soy-maize ecosystem](http://dx.doi.org/10.1111/gcb.13378/full)", by Christopher K. Black, Sarah C. Davis, Tara W. Hudiburg, Carl J. Bernacchi, and Evan H. DeLucia, which will appear in an issue TBA of Global Change Biology.
 
-If you're a reviewer for the manuscript: Hi! if something is missing from this repository that you need for your review, please tell us (anonymously is fine). We can probably add it quickly.
-
-If you're not a reviewer: Same request! But we may take longer to make the changes, and they will appear in a post-publication branch, not the archived-as-published version.
+The results we present in the paper were obtained using Git revision 0e7a7d1184f80a15681f195961f38730aec73988, which is tagged as `gcb2016_r2` and is also archived in the paper's [Dryad data package](http://dx.doi.org/10.5061/dryad.bn7j3).
 
 ## What you *will* find here:
 
@@ -13,8 +11,8 @@ DayCent input parameters, output files, most of the validation data, run-managem
 ## What you will *not* find here:
 
 * DayCent itself. For that, See ["Prerequisites", below](#prerequisites).
-* Chris's full Git history from the model development process. The development version contains three years of blind alleys and expletives and typos, so copying files into this public version was a way of cleaning up after myself. If something seems missing, ask and I'll dig it out of the development repository.
-* Raw data or analysis code from the field experiment portion of the paper. I *do* plan to post this elsewhere! If you need it in the meantime, please [pester me about it](http://twitter.com/infotroph).
+* Chris's full Git history from the model development process. The development version contains three years of blind alleys and expletives and typos, so copying files into this public version was a way of cleaning up after myself. If something seems missing, [ask](http://twitter.com/infotroph) and I'll dig it out of the development repository.
+* Raw data or analysis code from the field experiment portion of the paper. Find this [on Dryad](http://dx.doi.org/10.5061/dryad.bn7j3).
 * Validation data that contains unpublished values provided to me by collaborators. For details on what I've left out, see the [validation data README](validation_data/README.md).
 
 
