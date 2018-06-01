@@ -1,6 +1,6 @@
 # DayCent parameters for modeling SoyFACE temperature & CO2 manipulations
 
-This repository contains *nearly* all the files you need to recreate the DayCent model results presented in "[Elevated CO<sub>2</sub> and temperature increase soil C losses from a soy-maize ecosystem](http://dx.doi.org/10.1111/gcb.13378/full)", by Christopher K. Black, Sarah C. Davis, Tara W. Hudiburg, Carl J. Bernacchi, and Evan H. DeLucia, which will appear in an issue TBA of Global Change Biology.
+This repository contains *nearly* all the files you need to recreate the DayCent model results presented in "[Elevated CO<sub>2</sub> and temperature increase soil C losses from a soy-maize ecosystem](https://doi.org/10.1111/gcb.13378)", by Christopher K. Black, Sarah C. Davis, Tara W. Hudiburg, Carl J. Bernacchi, and Evan H. DeLucia (Global Change Biology 2017; volume 23 issue 1, pp. 435-445).
 
 The results we present in the paper were obtained using Git revision 0e7a7d1184f80a15681f195961f38730aec73988, which is tagged as `gcb2016_r2` and is also archived in the paper's [Dryad data package](http://dx.doi.org/10.5061/dryad.bn7j3).
 
